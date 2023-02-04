@@ -27,17 +27,53 @@ Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur 
 ---
 
 > dfsdf
-> sdf
-> sdf
 > Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
 
-> [!quote]
-> Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
-> asdasd
+
+> [!note]
+> Lorem ipsum dolor sit amet
+
+> [!abstract]
+> Lorem ipsum dolor sit amet
 
 > [!info]
-> Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
+> Lorem ipsum dolor sit amet
+
+> [!todo]
+> Lorem ipsum dolor sit amet
+
+> [!tip]
+> Lorem ipsum dolor sit amet
+
+> [!success]
+> Lorem ipsum dolor sit amet
+
+> [!question]
+> Lorem ipsum dolor sit amet
 
 > [!warning]
-> Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
+> Lorem ipsum dolor sit amet
 
+> [!failure]
+> Lorem ipsum dolor sit amet
+
+> [!danger]
+> Lorem ipsum dolor sit amet
+
+> [!bug]
+> Lorem ipsum dolor sit amet
+
+> [!example]
+> Lorem ipsum dolor sit amet
+
+> [!quote]
+> Lorem ipsum dolor sit amet
+
+
+> [!FAQ]- Are callouts foldable?
+> Yes! In a foldable callout, the contents are hidden until it's expanded.
+
+
+> [!question] Can callouts be nested?
+> > [!todo] Yes!, they can.
+> > > [!example]  You can even use multiple layers of nesting.
