@@ -1,6 +1,7 @@
 body {
 	--tab-outline-width: 0px;
 	--modal-border-width: 0px;
+	--prompt-border-width: 0px;
 	--status-bar-border-width: 0px;
 
 	--divider-width: 0px;
@@ -16,8 +17,7 @@ body {
 
 	--nav-item-background-active: var(--color-accent);
 	--nav-item-color-active: var(--text-on-accent);
-	--nav-collapse-icon-color: var(--text-accent);
-	--nav-indentation-guide-color: var(--text-accent);
+	--nav-item-color-hover: var(--text-accent);
 
 	--icon-color-focused: var(--text-accent);
 	--icon-color-active: var(--text-accent);
@@ -26,6 +26,15 @@ body {
 	--status-bar-background: var(--background-secondary-alt);
 	--status-bar-radius: 0px;
 	--status-bar-position: unset;
+
+	--indentation-guide-color-active: var(--text-accent);
+
+	--list-bullet-border: 0px;
+	--list-bullet-radius: 1px;
+	--lt-list-bullet-height: 2px;
+	--lt-list-bullet-width: 6px;
+
+
 
 
 
@@ -88,8 +97,8 @@ body {
 	--color-orange-rgb: 255, 127, 80;
 	--color-orange: #ff7f50;
 	--color-yellow-rgb: 236, 204, 104;
-	--color-yellow: #eccc68;
-	--color-cyan-rgb: 112, 161, 255;
+	--color-yellow: #fad14f;
+	--color-cyan-rgb: 250, 209, 79;
 	--color-cyan: #70a1ff;
 	--color-blue-rgb: 83, 82, 237;
 	--color-blue: #5352ed;
@@ -191,6 +200,10 @@ body {
 	.HyperMD-quote {
 		padding: var(--callout-padding);
 		border-radius: var(--callout-radius);
+		--lt-callout-padding-size: var(--size-4-6);
+		--lt-callout-padding: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size));
+		padding-inline-start: var(--lt-callout-padding) !important;
+		background: rgb(var(--callout-quote), 0.10);
 
 		:first-child {
 			margin-top: 0;
@@ -200,6 +213,20 @@ body {
 			margin-bottom: 0;
 		}
 	}
+
+	.HyperMD-quote[style*="padding-inline-start:21"] {
+		--lt-callout-indent: 1;
+	}
+
+	.HyperMD-quote[style*="padding-inline-start:39"] {
+		--lt-callout-indent: 2;
+	}
+
+	.HyperMD-quote[style*="padding-inline-start:56"] {
+		--lt-callout-indent: 3;
+	}
+
+	// decrease padding on inner quote sections
 
 	.HyperMD-quote:has(+ .HyperMD-quote) {
 		border-radius: var(--callout-radius) var(--callout-radius) 0 0;
@@ -213,14 +240,38 @@ body {
 		border-radius: 0;
 	}
 
+	// decrease padding on inner quote sections
+
+	.HyperMD-quote:not(.HyperMD-callout) + .HyperMD-quote:not(.HyperMD-callout) {
+		padding-top: 0;
+	}
+
+	.HyperMD-quote:not(.HyperMD-callout):has(+ .HyperMD-quote:not(.HyperMD-callout)) {
+		padding-bottom: 0;
+	}
+
+
 	// Callouts in live preview edit
 
 	// callout header
-	.HyperMD-quote.HyperMD-callout:has(+ .HyperMD-quote) {
+	.HyperMD-quote.HyperMD-callout {
 		padding: var(--callout-padding);
-		border-radius: var(--callout-radius);
-		background: rgb(var(--callout-quote), 0.20);
-		padding-inline-start: var(--size-4-6) !important;
+		border-radius: var(--callout-radius) var(--callout-radius) 0 0;
+		position: relative;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size));
+			right: 0;
+			background: rgb(var(--callout-quote), 0.10);
+			z-index: -1;
+			width: unset;
+			border: none;
+			border-radius: var(--callout-radius);
+		}
 
 		:first-child {
 			margin-top: 0;
@@ -235,7 +286,6 @@ body {
 	.HyperMD-quote.HyperMD-callout + .HyperMD-quote {
 		padding: var(--callout-padding);
 		border-radius: 0 0 var(--callout-radius) var(--callout-radius);
-		padding-inline-start: var(--size-4-6) !important;
 
 		:first-child {
 			margin-top: 0;
@@ -300,6 +350,89 @@ body {
 
 		&:before {
 			border-right: 1px solid var(--color-accent);
+		}
+	}
+}
+
+.list-bullet:after {
+	height: var(--lt-list-bullet-height);
+	width: var(--lt-list-bullet-width);
+}
+
+.cm-active .list-bullet:after {
+	background-color: var(--text-accent);
+}
+
+.cm-active .cm-formatting-list-ol {
+	color: var(--text-accent);
+}
+
+.HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header {
+	&:before {
+		content: "# ";
+		color: var(--text-faint);
+	}
+}
+
+.HyperMD-header.cm-active {
+	.cm-formatting-header {
+		color: var(--text-accent);
+	}
+}
+
+
+
+.prompt {
+	background: var(--background-primary);
+
+	.prompt-input-container {
+		input.prompt-input {
+			border: none;
+			background-color: var(--background-secondary);
+			border-radius: var(--radius-l);
+		}
+	}
+
+	.prompt-results {
+		.suggestion-item {
+			color: var(--text-muted);
+
+			.suggestion-highlight {
+				color: var(--text-normal);
+			}
+
+			&.is-selected {
+				color: var(--text-accent);
+
+				.suggestion-highlight {
+					color: var(--text-normal);
+				}
+
+				.suggestion-hotkey {
+					color: var(--text-accent);
+				}
+			}
+		}
+	}
+
+	.prompt-instructions {
+		position: relative;
+		border: none;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: var(--size-4-4);
+			right: var(--size-4-4);
+			top: 0;
+			height: 1px;
+			background-color: var(--background-secondary);
+		}
+
+		.prompt-instruction {
+			.prompt-instruction-command {
+				color: var(--text-normal);
+			}
 		}
 	}
 }
