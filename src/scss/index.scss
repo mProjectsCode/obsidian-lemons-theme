@@ -380,7 +380,30 @@ body {
 	}
 }
 
+.suggestion-container {
+	border: none;
+	background-color: var(--background-secondary);
+}
 
+.suggestion-item {
+	color: var(--text-muted);
+
+	.suggestion-highlight {
+		color: var(--text-normal);
+	}
+
+	&.is-selected {
+		color: var(--text-accent);
+
+		.suggestion-highlight {
+			color: var(--text-normal);
+		}
+
+		.suggestion-hotkey {
+			color: var(--text-accent);
+		}
+	}
+}
 
 .prompt {
 	background: var(--background-primary);
@@ -394,25 +417,7 @@ body {
 	}
 
 	.prompt-results {
-		.suggestion-item {
-			color: var(--text-muted);
 
-			.suggestion-highlight {
-				color: var(--text-normal);
-			}
-
-			&.is-selected {
-				color: var(--text-accent);
-
-				.suggestion-highlight {
-					color: var(--text-normal);
-				}
-
-				.suggestion-hotkey {
-					color: var(--text-accent);
-				}
-			}
-		}
 	}
 
 	.prompt-instructions {
@@ -435,4 +440,63 @@ body {
 			}
 		}
 	}
+}
+
+.view-content .graph-controls {
+	border: none;
+	background-color: var(--background-secondary);
+
+	padding: var(--size-4-1);
+
+	.graph-control-section.tree-item {
+		border: none;
+
+		padding: 0;
+
+		.tree-item-self {
+			padding: var(--size-4-2);
+
+			&:hover {
+				position: relative;
+
+				.graph-control-section-header {
+					color: var(--text-accent);
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					inset: 0;
+					border-radius: var(--radius-s);
+					background-color: var(--background-modifier-hover);
+				}
+			}
+		}
+
+		.tree-item-children {
+			padding: 0 var(--size-4-2) 0 var(--size-4-6);
+
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 12px;
+				width: 2px;
+				background-color: var(--background-modifier-border);
+			}
+		}
+	}
+}
+
+
+.canvas-control-item:hover {
+	color: var(--text-accent);
+}
+
+
+textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number'] {
+	border: none;
 }
