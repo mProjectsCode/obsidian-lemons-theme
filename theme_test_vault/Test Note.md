@@ -108,3 +108,16 @@ Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur 
 		2. asdasd
 	2. sdfsdf
 5. sdfsdfsdfsd
+
+```javascript
+test.foo();
+
+if (true) {
+	console.log('test');
+}
+
+for (const i in [1, 2, 3]) {
+	if (i === 2) continue;
+	console.log(i);
+}
+```
