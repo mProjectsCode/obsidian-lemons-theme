@@ -3,10 +3,13 @@
 	@return red($color) + ", " + green($color) + ", " + blue($color);
 }
 
+$color-accent: hsl(46, 95%, 65%);
+//$color-accent: #fad14f;
+
 $dark-color-red: #ff6b81;
 $dark-color-green: #7bed9f;
 $dark-color-orange: #ff7f50;
-$dark-color-yellow: #fad14f;
+$dark-color-yellow: $color-accent;
 $dark-color-cyan: #70a1ff;
 $dark-color-blue: #5352ed;
 $dark-color-purple: #a882ff;
@@ -63,17 +66,15 @@ body {
 	--lt-list-bullet-width: 6px;
 
 
-
-
 	/* Color mappings ------------------------ */
 	/* Accent HSL values */
 	//--accent-h: 46;
 	//--accent-s: 96%;
 	//--accent-l: 70%;
 
-	--accent-h: 45;
-	--accent-s: 78%;
-	--accent-l: 67%;
+	--accent-h: #{hue($color-accent)}; //45
+	--accent-s: #{saturation($color-accent)};// 78%;
+	--accent-l: #{lightness($color-accent)};// 67%;
 
 	/* Backgrounds */
 	--background-primary: var(--color-base-00);
@@ -99,7 +100,7 @@ body {
 	--text-on-accent: var(--color-base-00);
 	--text-error: var(--color-red);
 	--text-success: var(--color-green);
-	--text-selection: hsla(var(--color-accent-hsl), 0.2);
+	--text-selection: hsl(0, 0%, 100%, 0.2);
 	--text-accent: var(--color-accent);
 	--text-accent-hover: var(--color-accent-2);
 	--interactive-normal: var(--color-base-00);
@@ -160,7 +161,7 @@ body {
 	--background-modifier-cover: rgba(10, 10, 10, 0.4);
 	--text-highlight-bg: rgba(255, 208, 0, 0.4);
 	--text-highlight-bg-active: rgba(255, 128, 0, 0.4);
-	--text-selection: hsla(var(--interactive-accent-hsl), 0.25);
+	--text-selection: rgba(#{to_RGB_arguments($dark-color-base-100)}, 0.2);
 	--input-shadow: 0 0 0 0 transparent;
 	--input-shadow-hover: 0 0 0 0 transparent;
 	--shadow-s: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 3.4px 6.7px rgba(0, 0, 0, 0.1), 0px 15px 30px rgba(0, 0, 0, 0.15);
@@ -226,6 +227,48 @@ body.theme-dark {
 	}
 }
 
+.nav-files-container {
+	.nav-folder {
+		.nav-folder-collapse-indicator svg {
+			transition: color 100ms;
+		}
+
+		.nav-folder-title-content {
+			transition: color 100ms;
+		}
+
+		.nav-folder-children {
+			transition: border-left-color 100ms;
+		}
+
+		.nav-folder-title:not([data-path="/"]):hover {
+			.nav-folder-collapse-indicator svg {
+				color: var(--text-accent);
+			}
+
+			& + .nav-folder-children {
+				border-left: var(--nav-indentation-guide-width) solid var(--color-accent)
+			}
+		}
+
+		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover),
+		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active),
+		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) {
+			.nav-folder-collapse-indicator svg {
+				color: var(--text-accent);
+			}
+
+			.nav-folder-title-content {
+				color: var(--text-accent);
+			}
+
+			& + .nav-folder-children {
+				border-left-color: var(--color-accent);
+			}
+		}
+	}
+}
+
 .callout {
 	padding: 0;
 	background: rgb(var(--callout-color), 0.10);
@@ -253,9 +296,11 @@ body.theme-dark {
 	.HyperMD-quote {
 		padding: var(--callout-padding);
 		border-radius: var(--callout-radius);
-		--lt-callout-padding-size: var(--size-4-6);
-		--lt-callout-padding: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size));
-		padding-inline-start: var(--lt-callout-padding) !important;
+		--lt-callout-padding-size-start: var(--size-4-6);
+		--lt-callout-padding-size-end: var(--size-4-3);
+		--lt-callout-padding-start: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-start));
+		--lt-callout-padding-end: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-end));
+		padding-inline-start: var(--lt-callout-padding-start) !important;
 		background: rgb(var(--callout-quote), 0.10);
 
 		:first-child {
@@ -310,6 +355,7 @@ body.theme-dark {
 	.HyperMD-quote.HyperMD-callout {
 		padding: var(--callout-padding);
 		border-radius: var(--callout-radius) var(--callout-radius) 0 0;
+		font-weight: 600;
 		position: relative;
 
 		&:before {
@@ -317,8 +363,8 @@ body.theme-dark {
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			left: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size));
-			right: 0;
+			left: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-start));
+			right: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-end));
 			background: rgb(var(--callout-quote), 0.10);
 			z-index: -1;
 			width: unset;
