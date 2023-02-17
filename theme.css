@@ -500,6 +500,29 @@ body.theme-dark {
   border: none;
   border-radius: var(--modal-radius);
 }
+.modal .community-modal-search-results .community-item {
+  border: none;
+}
+.modal .community-modal-search-results .community-item:not(.is-selected):hover {
+  background-color: var(--background-primary-alt);
+}
+.modal .community-modal-search-results .community-item:not(.is-selected):hover .community-item-name {
+  color: var(--text-accent);
+}
+.modal .modal-sidebar {
+  border: none;
+  border-radius: var(--modal-radius);
+  transition: width 50ms;
+}
+.modal .community-modal-details {
+  border: none;
+}
+.modal .community-modal-details .modal-setting-nav-bar {
+  border: none;
+}
+.modal .community-modal-details .community-modal-info {
+  padding: var(--size-4-4) var(--size-4-12);
+}
 .workspace-split.mod-horizontal.mod-left-split .workspace-leaf {
   border-top-right-radius: var(--radius-l);
   border-bottom-right-radius: var(--radius-l);
