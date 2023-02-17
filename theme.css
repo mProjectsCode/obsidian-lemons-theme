@@ -1,3 +1,289 @@
+.callout {
+  padding: 0;
+  background: rgb(var(--callout-color), 0.1);
+}
+.callout .callout-title {
+  padding: var(--callout-padding);
+  background: rgb(var(--callout-color), 0.1);
+  border-radius: var(--callout-radius);
+}
+.callout .callout-content {
+  padding: var(--callout-padding);
+}
+.callout .callout-content :first-child {
+  margin-top: 0;
+}
+.callout .callout-content :last-child {
+  margin-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+  padding: var(--callout-padding);
+  border-radius: var(--callout-radius);
+  --lt-callout-padding-size-start: var(--size-4-6);
+  --lt-callout-padding-size-end: var(--size-4-3);
+  --lt-callout-padding-start: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-start));
+  --lt-callout-padding-end: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-end));
+  padding-inline-start: var(--lt-callout-padding-start) !important;
+  background: rgb(var(--callout-quote), 0.1);
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote :first-child {
+  margin-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote :last-child {
+  margin-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:21"] {
+  --lt-callout-indent: 1;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:39"] {
+  --lt-callout-indent: 2;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:56"] {
+  --lt-callout-indent: 3;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:has(+ .HyperMD-quote) {
+  border-radius: var(--callout-radius) var(--callout-radius) 0 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
+  border-radius: 0 0 var(--callout-radius) var(--callout-radius);
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote:has(+ .HyperMD-quote) {
+  border-radius: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.HyperMD-callout) + .HyperMD-quote:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.HyperMD-callout):has(+ .HyperMD-quote:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout {
+  padding: var(--callout-padding);
+  border-radius: var(--callout-radius) var(--callout-radius) 0 0;
+  font-weight: 600;
+  position: relative;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-start));
+  right: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-end));
+  background: rgb(var(--callout-quote), 0.1);
+  z-index: -1;
+  width: unset;
+  border: none;
+  border-radius: var(--callout-radius);
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout :first-child {
+  margin-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout :last-child {
+  margin-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote {
+  padding: var(--callout-padding);
+  border-radius: 0 0 var(--callout-radius) var(--callout-radius);
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote :first-child {
+  margin-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote :last-child {
+  margin-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote:has(+ .HyperMD-quote) {
+  border-radius: 0 0;
+}
+.canvas-wrapper {
+  --shadow-border-accent: none;
+}
+.canvas-wrapper .canvas-controls .canvas-control-group {
+  border: none;
+  background-color: var(--background-secondary);
+  box-shadow: var(--shadow-s);
+}
+.canvas-wrapper .canvas-controls .canvas-control-group .canvas-control-item {
+  border: none;
+  background-color: transparent;
+}
+.canvas-wrapper .canvas-controls .canvas-control-group .canvas-control-item:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--text-accent);
+}
+.canvas-wrapper .canvas-menu {
+  border: none;
+  background: var(--background-secondary);
+  box-shadow: var(--shadow-s);
+}
+.canvas-wrapper .canvas .canvas-edges g path.canvas-interaction-path {
+  stroke-width: calc(24px * var(--zoom-multiplier));
+  stroke: none;
+}
+.canvas-wrapper .canvas .canvas-edges g path.canvas-display-path {
+  stroke-width: calc(2px * var(--zoom-multiplier));
+}
+.canvas-wrapper .canvas .canvas-edges g.is-focused path.canvas-display-path {
+  stroke: var(--text-accent);
+  stroke-width: calc(2px * var(--zoom-multiplier));
+}
+.canvas-wrapper .canvas .canvas-edges g.is-focused polygon.canvas-path-end {
+  stroke: var(--text-accent);
+  fill: var(--text-accent);
+  stroke-width: calc(2px * var(--zoom-multiplier));
+}
+.canvas-wrapper .canvas .canvas-edges g:hover path.canvas-display-path {
+  stroke-width: calc(2px * var(--zoom-multiplier));
+}
+.canvas-wrapper .canvas .canvas-node.is-selected .canvas-node-label,
+.canvas-wrapper .canvas .canvas-node.is-focused .canvas-node-label {
+  color: var(--text-accent);
+}
+.nav-files-container .nav-folder .nav-folder-collapse-indicator svg {
+  transition: color 50ms;
+}
+.nav-files-container .nav-folder .nav-folder-title-content {
+  transition: color 50ms;
+}
+.nav-files-container .nav-folder .nav-folder-children {
+  transition: border-left-color 50ms;
+}
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover .nav-folder-collapse-indicator svg {
+  color: var(--text-accent);
+}
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover + .nav-folder-children {
+  border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
+}
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) .nav-folder-collapse-indicator svg,
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) .nav-folder-collapse-indicator svg,
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) .nav-folder-collapse-indicator svg {
+  color: var(--text-accent);
+}
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) .nav-folder-title-content,
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) .nav-folder-title-content,
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) .nav-folder-title-content {
+  color: var(--text-accent);
+}
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) + .nav-folder-children,
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) + .nav-folder-children,
+.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) + .nav-folder-children {
+  border-left-color: var(--color-accent);
+}
+.view-content .graph-controls {
+  border: none;
+  background-color: var(--background-secondary);
+  padding: var(--size-4-1);
+}
+.view-content .graph-controls .graph-control-section.tree-item {
+  border: none;
+  padding: 0;
+}
+.view-content .graph-controls .graph-control-section.tree-item .tree-item-self {
+  padding: var(--size-4-2);
+}
+.view-content .graph-controls .graph-control-section.tree-item .tree-item-self:hover {
+  position: relative;
+}
+.view-content .graph-controls .graph-control-section.tree-item .tree-item-self:hover .graph-control-section-header {
+  color: var(--text-accent);
+}
+.view-content .graph-controls .graph-control-section.tree-item .tree-item-self:hover:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-s);
+  background-color: var(--background-modifier-hover);
+}
+.view-content .graph-controls .graph-control-section.tree-item .tree-item-children {
+  padding: 0 var(--size-4-2) 0 var(--size-4-6);
+  position: relative;
+}
+.view-content .graph-controls .graph-control-section.tree-item .tree-item-children:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  width: 2px;
+  background-color: var(--background-modifier-border);
+}
+.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers {
+  overflow: visible;
+}
+.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement {
+  position: relative;
+  overflow: visible;
+}
+.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement:before {
+  content: "";
+  position: absolute;
+  border-right: 1px solid var(--background-secondary);
+  top: 0;
+  bottom: 0;
+  right: calc(-1 * var(--size-2-3));
+  left: 0;
+}
+.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement.cm-active {
+  color: var(--text-accent);
+}
+.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement.cm-active:before {
+  border-right: 1px solid var(--color-accent);
+}
+.prompt {
+  background: var(--background-primary);
+}
+.prompt .prompt-input-container input.prompt-input {
+  border: none;
+  background-color: var(--background-secondary);
+  border-radius: var(--radius-l);
+}
+.prompt .prompt-instructions {
+  position: relative;
+  border: none;
+}
+.prompt .prompt-instructions:before {
+  content: "";
+  position: absolute;
+  left: var(--size-4-4);
+  right: var(--size-4-4);
+  top: 0;
+  height: 1px;
+  background-color: var(--background-secondary);
+}
+.prompt .prompt-instructions .prompt-instruction .prompt-instruction-command {
+  color: var(--text-normal);
+}
+.status-bar-item.mod-clickable:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--text-accent);
+}
+.suggestion-container {
+  border: none;
+  background-color: var(--background-secondary);
+}
+.suggestion-item {
+  color: var(--text-muted);
+}
+.suggestion-item .suggestion-highlight {
+  color: var(--text-normal);
+}
+.suggestion-item.is-selected {
+  color: var(--text-accent);
+}
+.suggestion-item.is-selected .suggestion-highlight {
+  color: var(--text-normal);
+}
+.suggestion-item.is-selected .suggestion-hotkey {
+  color: var(--text-accent);
+}
+.titlebar .titlebar-button svg {
+  color: var(--text-muted);
+}
+.titlebar .titlebar-button:hover svg {
+  color: var(--text-accent);
+}
+.titlebar .titlebar-button.mod-close:hover svg {
+  color: var(--text-normal);
+}
 body {
   --tab-outline-width: 0px;
   --modal-border-width: 0px;
@@ -202,141 +488,6 @@ body.theme-dark {
   border-top-left-radius: var(--radius-l);
   border-bottom-left-radius: var(--radius-l);
 }
-.titlebar .titlebar-button svg {
-  color: var(--text-muted);
-}
-.titlebar .titlebar-button:hover svg {
-  color: var(--text-accent);
-}
-.titlebar .titlebar-button.mod-close:hover svg {
-  color: var(--text-normal);
-}
-.nav-files-container .nav-folder .nav-folder-collapse-indicator svg {
-  transition: color 100ms;
-}
-.nav-files-container .nav-folder .nav-folder-title-content {
-  transition: color 100ms;
-}
-.nav-files-container .nav-folder .nav-folder-children {
-  transition: border-left-color 100ms;
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover .nav-folder-collapse-indicator svg {
-  color: var(--text-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover + .nav-folder-children {
-  border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) .nav-folder-collapse-indicator svg,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) .nav-folder-collapse-indicator svg,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) .nav-folder-collapse-indicator svg {
-  color: var(--text-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) .nav-folder-title-content,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) .nav-folder-title-content,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) .nav-folder-title-content {
-  color: var(--text-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) + .nav-folder-children,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) + .nav-folder-children,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) + .nav-folder-children {
-  border-left-color: var(--color-accent);
-}
-.callout {
-  padding: 0;
-  background: rgb(var(--callout-color), 0.1);
-}
-.callout .callout-title {
-  padding: var(--callout-padding);
-  background: rgb(var(--callout-color), 0.1);
-  border-radius: var(--callout-radius);
-}
-.callout .callout-content {
-  padding: var(--callout-padding);
-}
-.callout .callout-content :first-child {
-  margin-top: 0;
-}
-.callout .callout-content :last-child {
-  margin-bottom: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-  padding: var(--callout-padding);
-  border-radius: var(--callout-radius);
-  --lt-callout-padding-size-start: var(--size-4-6);
-  --lt-callout-padding-size-end: var(--size-4-3);
-  --lt-callout-padding-start: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-start));
-  --lt-callout-padding-end: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-end));
-  padding-inline-start: var(--lt-callout-padding-start) !important;
-  background: rgb(var(--callout-quote), 0.1);
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote :first-child {
-  margin-top: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote :last-child {
-  margin-bottom: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:21"] {
-  --lt-callout-indent: 1;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:39"] {
-  --lt-callout-indent: 2;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:56"] {
-  --lt-callout-indent: 3;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:has(+ .HyperMD-quote) {
-  border-radius: var(--callout-radius) var(--callout-radius) 0 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
-  border-radius: 0 0 var(--callout-radius) var(--callout-radius);
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote:has(+ .HyperMD-quote) {
-  border-radius: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.HyperMD-callout) + .HyperMD-quote:not(.HyperMD-callout) {
-  padding-top: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.HyperMD-callout):has(+ .HyperMD-quote:not(.HyperMD-callout)) {
-  padding-bottom: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout {
-  padding: var(--callout-padding);
-  border-radius: var(--callout-radius) var(--callout-radius) 0 0;
-  font-weight: 600;
-  position: relative;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-start));
-  right: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-end));
-  background: rgb(var(--callout-quote), 0.1);
-  z-index: -1;
-  width: unset;
-  border: none;
-  border-radius: var(--callout-radius);
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout :first-child {
-  margin-top: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout :last-child {
-  margin-bottom: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote {
-  padding: var(--callout-padding);
-  border-radius: 0 0 var(--callout-radius) var(--callout-radius);
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote :first-child {
-  margin-top: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote :last-child {
-  margin-bottom: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote:has(+ .HyperMD-quote) {
-  border-radius: 0 0;
-}
 .menu {
   border: none;
   background: var(--background-secondary-alt);
@@ -353,32 +504,6 @@ body.theme-dark {
 .menu .menu-item.is-warning.selected .menu-item-icon {
   color: var(--text-error);
 }
-.status-bar-item.mod-clickable:hover {
-  background-color: var(--background-modifier-hover);
-  color: var(--text-accent);
-}
-.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers {
-  overflow: visible;
-}
-.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement {
-  position: relative;
-  overflow: visible;
-}
-.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement:before {
-  content: "";
-  position: absolute;
-  border-right: 1px solid var(--background-secondary);
-  top: 0;
-  bottom: 0;
-  right: calc(-1 * var(--size-2-3));
-  left: 0;
-}
-.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement.cm-active {
-  color: var(--text-accent);
-}
-.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement.cm-active:before {
-  border-right: 1px solid var(--color-accent);
-}
 .list-bullet:after {
   height: var(--lt-list-bullet-height);
   width: var(--lt-list-bullet-width);
@@ -394,131 +519,6 @@ body.theme-dark {
   color: var(--text-faint);
 }
 .HyperMD-header.cm-active .cm-formatting-header {
-  color: var(--text-accent);
-}
-.suggestion-container {
-  border: none;
-  background-color: var(--background-secondary);
-}
-.suggestion-item {
-  color: var(--text-muted);
-}
-.suggestion-item .suggestion-highlight {
-  color: var(--text-normal);
-}
-.suggestion-item.is-selected {
-  color: var(--text-accent);
-}
-.suggestion-item.is-selected .suggestion-highlight {
-  color: var(--text-normal);
-}
-.suggestion-item.is-selected .suggestion-hotkey {
-  color: var(--text-accent);
-}
-.prompt {
-  background: var(--background-primary);
-}
-.prompt .prompt-input-container input.prompt-input {
-  border: none;
-  background-color: var(--background-secondary);
-  border-radius: var(--radius-l);
-}
-.prompt .prompt-instructions {
-  position: relative;
-  border: none;
-}
-.prompt .prompt-instructions:before {
-  content: "";
-  position: absolute;
-  left: var(--size-4-4);
-  right: var(--size-4-4);
-  top: 0;
-  height: 1px;
-  background-color: var(--background-secondary);
-}
-.prompt .prompt-instructions .prompt-instruction .prompt-instruction-command {
-  color: var(--text-normal);
-}
-.view-content .graph-controls {
-  border: none;
-  background-color: var(--background-secondary);
-  padding: var(--size-4-1);
-}
-.view-content .graph-controls .graph-control-section.tree-item {
-  border: none;
-  padding: 0;
-}
-.view-content .graph-controls .graph-control-section.tree-item .tree-item-self {
-  padding: var(--size-4-2);
-}
-.view-content .graph-controls .graph-control-section.tree-item .tree-item-self:hover {
-  position: relative;
-}
-.view-content .graph-controls .graph-control-section.tree-item .tree-item-self:hover .graph-control-section-header {
-  color: var(--text-accent);
-}
-.view-content .graph-controls .graph-control-section.tree-item .tree-item-self:hover:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-s);
-  background-color: var(--background-modifier-hover);
-}
-.view-content .graph-controls .graph-control-section.tree-item .tree-item-children {
-  padding: 0 var(--size-4-2) 0 var(--size-4-6);
-  position: relative;
-}
-.view-content .graph-controls .graph-control-section.tree-item .tree-item-children:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 12px;
-  width: 2px;
-  background-color: var(--background-modifier-border);
-}
-.canvas-wrapper {
-  --shadow-border-accent: none;
-}
-.canvas-wrapper .canvas-controls .canvas-control-group {
-  border: none;
-  background-color: var(--background-secondary);
-  box-shadow: var(--shadow-s);
-}
-.canvas-wrapper .canvas-controls .canvas-control-group .canvas-control-item {
-  border: none;
-  background-color: transparent;
-}
-.canvas-wrapper .canvas-controls .canvas-control-group .canvas-control-item:hover {
-  background-color: var(--background-modifier-hover);
-  color: var(--text-accent);
-}
-.canvas-wrapper .canvas-menu {
-  border: none;
-  background: var(--background-secondary);
-  box-shadow: var(--shadow-s);
-}
-.canvas-wrapper .canvas .canvas-edges g path.canvas-interaction-path {
-  stroke-width: calc(24px * var(--zoom-multiplier));
-  stroke: none;
-}
-.canvas-wrapper .canvas .canvas-edges g path.canvas-display-path {
-  stroke-width: calc(2px * var(--zoom-multiplier));
-}
-.canvas-wrapper .canvas .canvas-edges g.is-focused path.canvas-display-path {
-  stroke: var(--text-accent);
-  stroke-width: calc(2px * var(--zoom-multiplier));
-}
-.canvas-wrapper .canvas .canvas-edges g.is-focused polygon.canvas-path-end {
-  stroke: var(--text-accent);
-  fill: var(--text-accent);
-  stroke-width: calc(2px * var(--zoom-multiplier));
-}
-.canvas-wrapper .canvas .canvas-edges g:hover path.canvas-display-path {
-  stroke-width: calc(2px * var(--zoom-multiplier));
-}
-.canvas-wrapper .canvas .canvas-node.is-selected .canvas-node-label,
-.canvas-wrapper .canvas .canvas-node.is-focused .canvas-node-label {
   color: var(--text-accent);
 }
 textarea,

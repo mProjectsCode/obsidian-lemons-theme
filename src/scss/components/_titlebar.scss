@@ -1,0 +1,19 @@
+.titlebar {
+	.titlebar-button {
+		svg {
+			color: var(--text-muted);
+		}
+
+		&:hover {
+			svg {
+				color: var(--text-accent);
+			}
+		}
+
+		&.mod-close:hover {
+			svg {
+				color: var(--text-normal);
+			}
+		}
+	}
+}

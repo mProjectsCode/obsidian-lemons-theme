@@ -1,0 +1,48 @@
+.view-content .graph-controls {
+	border: none;
+	background-color: var(--background-secondary);
+
+	padding: var(--size-4-1);
+
+	.graph-control-section.tree-item {
+		border: none;
+
+		padding: 0;
+
+		.tree-item-self {
+			padding: var(--size-4-2);
+
+			&:hover {
+				position: relative;
+
+				.graph-control-section-header {
+					color: var(--text-accent);
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					inset: 0;
+					border-radius: var(--radius-s);
+					background-color: var(--background-modifier-hover);
+				}
+			}
+		}
+
+		.tree-item-children {
+			padding: 0 var(--size-4-2) 0 var(--size-4-6);
+
+			position: relative;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 12px;
+				width: 2px;
+				background-color: var(--background-modifier-border);
+			}
+		}
+	}
+}

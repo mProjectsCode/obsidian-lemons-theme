@@ -1,0 +1,26 @@
+.markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers {
+	overflow: visible;
+
+	.cm-gutterElement {
+		position: relative;
+		overflow: visible;
+
+		&:before {
+			content: "";
+			position: absolute;
+			border-right: 1px solid var(--background-secondary);
+			top: 0;
+			bottom: 0;
+			right: calc(-1 * var(--size-2-3));
+			left: 0;
+		}
+	}
+
+	.cm-gutterElement.cm-active {
+		color: var(--text-accent);
+
+		&:before {
+			border-right: 1px solid var(--color-accent);
+		}
+	}
+}

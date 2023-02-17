@@ -1,0 +1,32 @@
+.prompt {
+	background: var(--background-primary);
+
+	.prompt-input-container {
+		input.prompt-input {
+			border: none;
+			background-color: var(--background-secondary);
+			border-radius: var(--radius-l);
+		}
+	}
+
+	.prompt-instructions {
+		position: relative;
+		border: none;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: var(--size-4-4);
+			right: var(--size-4-4);
+			top: 0;
+			height: 1px;
+			background-color: var(--background-secondary);
+		}
+
+		.prompt-instruction {
+			.prompt-instruction-command {
+				color: var(--text-normal);
+			}
+		}
+	}
+}

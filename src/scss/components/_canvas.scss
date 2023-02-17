@@ -1,0 +1,71 @@
+.canvas-wrapper {
+	--shadow-border-accent: none;
+
+	.canvas-controls {
+		.canvas-control-group {
+			border: none;
+			background-color: var(--background-secondary);
+			box-shadow: var(--shadow-s);
+
+			.canvas-control-item {
+				border: none;
+				background-color: transparent;
+
+				&:hover {
+					background-color: var(--background-modifier-hover);
+					color: var(--text-accent);
+				}
+			}
+		}
+	}
+
+	.canvas-menu {
+		border: none;
+		background: var(--background-secondary);
+		box-shadow: var(--shadow-s);
+	}
+
+	.canvas {
+		.canvas-edges {
+			g {
+				path.canvas-interaction-path {
+					stroke-width: calc(24px * var(--zoom-multiplier));
+					stroke: none;
+				}
+
+				path.canvas-display-path {
+					stroke-width: calc(2px * var(--zoom-multiplier));
+				}
+
+				&.is-focused {
+					path.canvas-display-path {
+						stroke: var(--text-accent);
+						stroke-width: calc(2px * var(--zoom-multiplier));
+					}
+
+					polygon.canvas-path-end {
+						stroke: var(--text-accent);
+						fill: var(--text-accent);
+						stroke-width: calc(2px * var(--zoom-multiplier));
+					}
+				}
+
+				&:hover {
+					path.canvas-display-path {
+						stroke-width: calc(2px * var(--zoom-multiplier));
+					}
+				}
+			}
+		}
+
+		.canvas-node {
+			&.is-selected, &.is-focused {
+				.canvas-node-label {
+					color: var(--text-accent)
+				}
+			}
+			.canvas-node-container {
+			}
+		}
+	}
+}

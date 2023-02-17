@@ -1,0 +1,41 @@
+.nav-files-container {
+	.nav-folder {
+		.nav-folder-collapse-indicator svg {
+			transition: color 50ms;
+		}
+
+		.nav-folder-title-content {
+			transition: color 50ms;
+		}
+
+		.nav-folder-children {
+			transition: border-left-color 50ms;
+		}
+
+		.nav-folder-title:not([data-path="/"]):hover {
+			.nav-folder-collapse-indicator svg {
+				color: var(--text-accent);
+			}
+
+			& + .nav-folder-children {
+				border-left: var(--nav-indentation-guide-width) solid var(--color-accent)
+			}
+		}
+
+		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover),
+		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active),
+		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) {
+			.nav-folder-collapse-indicator svg {
+				color: var(--text-accent);
+			}
+
+			.nav-folder-title-content {
+				color: var(--text-accent);
+			}
+
+			& + .nav-folder-children {
+				border-left-color: var(--color-accent);
+			}
+		}
+	}
+}

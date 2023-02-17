@@ -1,0 +1,131 @@
+.callout {
+	padding: 0;
+	background: rgb(var(--callout-color), 0.10);
+
+	.callout-title {
+		padding: var(--callout-padding);
+		background: rgb(var(--callout-color), 0.10);
+		border-radius: var(--callout-radius);
+	}
+
+	.callout-content {
+		padding: var(--callout-padding);
+
+		:first-child {
+			margin-top: 0;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// live preview callouts
+.markdown-source-view.mod-cm6.is-live-preview {
+	.HyperMD-quote {
+		padding: var(--callout-padding);
+		border-radius: var(--callout-radius);
+		--lt-callout-padding-size-start: var(--size-4-6);
+		--lt-callout-padding-size-end: var(--size-4-3);
+		--lt-callout-padding-start: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-start));
+		--lt-callout-padding-end: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-end));
+		padding-inline-start: var(--lt-callout-padding-start) !important;
+		background: rgb(var(--callout-quote), 0.10);
+
+		:first-child {
+			margin-top: 0;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.HyperMD-quote[style*="padding-inline-start:21"] {
+		--lt-callout-indent: 1;
+	}
+
+	.HyperMD-quote[style*="padding-inline-start:39"] {
+		--lt-callout-indent: 2;
+	}
+
+	.HyperMD-quote[style*="padding-inline-start:56"] {
+		--lt-callout-indent: 3;
+	}
+
+	// decrease padding on inner quote sections
+
+	.HyperMD-quote:has(+ .HyperMD-quote) {
+		border-radius: var(--callout-radius) var(--callout-radius) 0 0;
+	}
+
+	.HyperMD-quote + .HyperMD-quote {
+		border-radius: 0 0 var(--callout-radius) var(--callout-radius);
+	}
+
+	.HyperMD-quote + .HyperMD-quote:has(+ .HyperMD-quote) {
+		border-radius: 0;
+	}
+
+	// decrease padding on inner quote sections
+
+	.HyperMD-quote:not(.HyperMD-callout) + .HyperMD-quote:not(.HyperMD-callout) {
+		padding-top: 0;
+	}
+
+	.HyperMD-quote:not(.HyperMD-callout):has(+ .HyperMD-quote:not(.HyperMD-callout)) {
+		padding-bottom: 0;
+	}
+
+
+	// Callouts in live preview edit
+
+	// callout header
+	.HyperMD-quote.HyperMD-callout {
+		padding: var(--callout-padding);
+		border-radius: var(--callout-radius) var(--callout-radius) 0 0;
+		font-weight: 600;
+		position: relative;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-start));
+			right: calc((var(--lt-callout-indent) - 1) * var(--lt-callout-padding-size-end));
+			background: rgb(var(--callout-quote), 0.10);
+			z-index: -1;
+			width: unset;
+			border: none;
+			border-radius: var(--callout-radius);
+		}
+
+		:first-child {
+			margin-top: 0;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// callout body
+	.HyperMD-quote.HyperMD-callout + .HyperMD-quote {
+		padding: var(--callout-padding);
+		border-radius: 0 0 var(--callout-radius) var(--callout-radius);
+
+		:first-child {
+			margin-top: 0;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.HyperMD-quote.HyperMD-callout + .HyperMD-quote:has(+ .HyperMD-quote) {
+		border-radius: 0 0;
+	}
+}
