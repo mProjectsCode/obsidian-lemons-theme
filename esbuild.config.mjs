@@ -13,7 +13,7 @@ import time from 'esbuild-plugin-time';
 config();
 
 const prod = process.argv[2] === "production";
-const dir = prod ? "./" : "./theme_test_vault/.obsidian/themes";
+const dir = "./";
 
 /** Paths for final file */
 const fileProd = `${dir}/theme.css`;

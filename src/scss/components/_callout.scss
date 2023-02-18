@@ -21,16 +21,26 @@
 	}
 }
 
+.markdown-rendered blockquote {
+	padding: var(--callout-padding);
+	border-radius: var(--callout-radius);
+	background: rgb(var(--callout-quote), 0.10);
+
+	cite {
+		display: block;
+	}
+}
+
 // live preview callouts
 .markdown-source-view.mod-cm6.is-live-preview {
 	.HyperMD-quote {
 		padding: var(--callout-padding);
 		border-radius: var(--callout-radius);
-		--lt-callout-padding-size-start: var(--size-4-6);
+		--lt-callout-padding-size-start: 18px;
 		--lt-callout-padding-size-end: var(--size-4-3);
 		--lt-callout-padding-start: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-start));
 		--lt-callout-padding-end: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-end));
-		padding-inline-start: var(--lt-callout-padding-start) !important;
+		padding-inline-start: calc(var(--size-4-2) + var(--lt-callout-padding-start)) !important;
 		background: rgb(var(--callout-quote), 0.10);
 
 		:first-child {
@@ -42,16 +52,21 @@
 		}
 	}
 
-	.HyperMD-quote[style*="padding-inline-start:21"] {
-		--lt-callout-indent: 1;
-	}
 
-	.HyperMD-quote[style*="padding-inline-start:39"] {
-		--lt-callout-indent: 2;
-	}
+	@for $i from 1 through 9 {
+		.HyperMD-quote-#{$i} {
+			--lt-callout-indent: #{$i};
+		}
 
-	.HyperMD-quote[style*="padding-inline-start:56"] {
-		--lt-callout-indent: 3;
+		// decrease padding on inner quote sections
+
+		.HyperMD-quote-#{$i}:not(.HyperMD-callout) + .HyperMD-quote-#{$i}:not(.HyperMD-callout) {
+			padding-top: 0;
+		}
+
+		.HyperMD-quote-#{$i}:not(.HyperMD-callout):has(+ .HyperMD-quote-#{$i}:not(.HyperMD-callout)) {
+			padding-bottom: 0;
+		}
 	}
 
 	// decrease padding on inner quote sections
@@ -68,15 +83,7 @@
 		border-radius: 0;
 	}
 
-	// decrease padding on inner quote sections
 
-	.HyperMD-quote:not(.HyperMD-callout) + .HyperMD-quote:not(.HyperMD-callout) {
-		padding-top: 0;
-	}
-
-	.HyperMD-quote:not(.HyperMD-callout):has(+ .HyperMD-quote:not(.HyperMD-callout)) {
-		padding-bottom: 0;
-	}
 
 
 	// Callouts in live preview edit

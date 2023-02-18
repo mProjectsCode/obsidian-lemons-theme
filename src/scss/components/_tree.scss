@@ -1,0 +1,47 @@
+.tree-item {
+	.tree-item-self {
+		.tree-item-inner {
+			color: var(--nav-item-color);
+			transition: color 50ms;
+		}
+
+		.tree-item-icon svg {
+			transition: color 50ms;
+		}
+
+		&:hover {
+			.tree-item-inner {
+				color: var(--text-accent);
+			}
+
+			.tree-item-icon svg {
+				color: var(--text-accent);
+			}
+
+			& + .tree-item-children {
+				border-left: var(--nav-indentation-guide-width) solid var(--color-accent)
+			}
+		}
+	}
+
+	.tree-item-children {
+		transition: border-left-color 50ms;
+	}
+
+	.tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover),
+	.tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) {
+		.tree-item-inner {
+			color: var(--text-accent);
+		}
+
+		.tree-item-icon svg {
+			color: var(--text-accent);
+		}
+
+		& + .tree-item-children {
+			border-left: var(--nav-indentation-guide-width) solid var(--color-accent)
+		}
+	}
+}
+
+

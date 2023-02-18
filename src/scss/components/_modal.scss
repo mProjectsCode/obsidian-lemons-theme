@@ -1,0 +1,42 @@
+.modal {
+	// settings tab
+	&.mod-settings .vertical-tab-header {
+		border: none;
+		border-radius: var(--modal-radius);
+	}
+
+	.modal-sidebar {
+		 border: none;
+		 border-radius: var(--modal-radius);
+
+		 transition: width 50ms;
+	 }
+
+	// plugin and theme tab
+	.community-modal-search-results {
+		.community-item {
+			border: none;
+
+			&:not(.is-selected):hover {
+				background-color: var(--background-primary-alt);
+
+				.community-item-name {
+					color: var(--text-accent);
+				}
+			}
+		}
+	}
+
+	// plugin and theme tab detail page
+	.community-modal-details {
+		border: none;
+
+		.modal-setting-nav-bar {
+			border: none;
+		}
+
+		.community-modal-info {
+			padding: var(--size-4-4) var(--size-4-12);
+		}
+	}
+}

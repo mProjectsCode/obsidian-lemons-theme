@@ -1,0 +1,53 @@
+.markdown-rendered {
+	table {
+		border-radius: var(--radius-m);
+		overflow: hidden;
+
+		& > thead {
+			& > tr {
+				border-bottom: 1px solid var(--background-modifier-border-hover);
+
+				&:hover {
+					background-color: var(--background-primary-alt);
+				}
+
+				& > th {
+					border: none;
+				}
+			}
+		}
+
+		& > tbody {
+			& > tr {
+				border-bottom: 1px solid var(--background-modifier-border);
+
+				&:hover {
+					border-bottom: 1px solid var(--background-modifier-border-hover);
+					background-color: var(--background-primary-alt) !important;
+				}
+
+				&:has(+ tr:hover) {
+					border-bottom: 1px solid var(--background-modifier-border-hover);
+				}
+
+				& > td {
+					border: none;
+				}
+			}
+
+			& > tr:last-child {
+				border-bottom: none;
+			}
+		}
+
+		:is(td, th) {
+			padding: var(--size-4-2) var(--size-4-4);
+
+			&:hover {
+				background-color: var(--background-secondary) !important;
+			}
+		}
+	}
+}
+
+
