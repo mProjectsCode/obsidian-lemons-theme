@@ -18,6 +18,100 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+/*!
+/* @settings
+name: Lemons Theme
+id: lemons-theme-settings
+collapsed: false
+settings:
+  - 
+	id: lt-set-settings
+	title: Lemons Theme Settings
+	type: heading
+	level: 1
+  - 
+	id: lt-set-mode-toggles
+	title: Mode Toggles
+	type: heading
+	level: 2
+  - 
+	id: lt-set-focus-mode
+	title: Focus Mode
+	description: Disables part of the UI to help you focus.
+	type: class-toggle
+	addCommand: true
+  -
+	id: lt-set-full-width-editor
+	title: Full Width Editor
+	description: Removes the width limit on the editor.
+	type: class-toggle
+	addCommand: true
+ */
+.style-settings-heading[data-level="0"] {
+  margin-bottom: var(--size-4-2);
+}
+.style-settings-heading {
+  margin-bottom: var(--size-4-2);
+  border: none;
+}
+.style-settings-container {
+  margin-left: var(--size-4-1);
+  border-left: 1px solid var(--background-modifier-border);
+  padding-left: var(--size-4-8);
+  padding-bottom: 0;
+}
+.style-settings-container .setting-item {
+  border: none;
+}
+.style-settings-heading[data-level="0"] + .style-settings-container .style-settings-collapse-indicator {
+  margin: 0 var(--size-4-2) 0 0;
+}
+.workspace-ribbon.mod-left.is-collapsed {
+  transition: background-color 0ms;
+  transition-delay: 250ms;
+}
+.sidebar-toggle-button.mod-left {
+  height: var(--header-height);
+}
+@keyframes lt-set-focus-mode-sidebar-toggle-button-transition {
+  from {
+    background-color: var(--background-secondary);
+  }
+  to {
+    background-color: var(--titlebar-background);
+  }
+}
+body.lt-set-focus-mode {
+  --titlebar-background: var(--background-primary);
+  --titlebar-background-focused: var(--background-primary);
+}
+body.lt-set-focus-mode .workspace:not(.is-left-sidedock-open) .side-dock-actions {
+  display: none;
+}
+body.lt-set-focus-mode .workspace .workspace-ribbon.is-collapsed .sidebar-toggle-button.mod-left {
+  animation: lt-set-focus-mode-sidebar-toggle-button-transition 0ms;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
+}
+body.lt-set-focus-mode .workspace .workspace-ribbon .sidebar-toggle-button.mod-left {
+  background-color: var(--background-secondary);
+}
+body.lt-set-focus-mode .workspace-tab-header-container {
+  display: none;
+}
+body.lt-set-focus-mode .status-bar {
+  display: none;
+}
+body.lt-set-focus-mode .view-header {
+  display: none;
+}
+body.lt-set-focus-mode .workspace-split.mod-right-split {
+  display: none;
+  width: 0;
+}
+body.lt-set-full-width-editor {
+  --file-line-width: 10000px;
+}
 .callout {
   padding: 0;
   background: rgb(var(--callout-color), 0.1);
@@ -30,44 +124,189 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 .callout .callout-content {
   padding: var(--callout-padding);
 }
-.callout .callout-content :first-child {
+.callout .callout-content > :first-child {
   margin-top: 0;
 }
-.callout .callout-content :last-child {
+.callout .callout-content > :last-child {
   margin-bottom: 0;
+}
+.callout[data-callout=row] {
+  background: transparent;
+}
+.callout[data-callout=row] > .callout-title {
+  display: none;
+}
+.callout[data-callout=row] > .callout-content {
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--size-4-4);
+}
+.callout[data-callout=row] > .callout-content > * {
+  flex: 1;
+  margin: 0;
+}
+.callout[data-callout=grid] {
+  --lt-callout-grid-columns: 2;
+  background: transparent;
+}
+.callout[data-callout=grid][data-callout-metadata="1"] {
+  --lt-callout-grid-columns: 1;
+}
+.callout[data-callout=grid][data-callout-metadata="2"] {
+  --lt-callout-grid-columns: 2;
+}
+.callout[data-callout=grid][data-callout-metadata="3"] {
+  --lt-callout-grid-columns: 3;
+}
+.callout[data-callout=grid][data-callout-metadata="4"] {
+  --lt-callout-grid-columns: 4;
+}
+.callout[data-callout=grid][data-callout-metadata="5"] {
+  --lt-callout-grid-columns: 5;
+}
+.callout[data-callout=grid] > .callout-title {
+  display: none;
+}
+.callout[data-callout=grid] > .callout-content {
+  padding: 0;
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(var(--lt-callout-grid-columns), 1fr);
+  gap: var(--size-4-4);
+}
+.callout[data-callout=grid] > .callout-content > * {
+  margin: 0;
+}
+.callout[data-callout=float] {
+  float: right;
+  max-width: 50%;
+  margin-left: 1em;
+  margin-top: 0;
+  background: transparent;
+}
+.callout[data-callout=float][data-callout-metadata=left] {
+  float: left;
+  margin-left: 0;
+  margin-right: 1em;
+}
+.callout[data-callout=float] > .callout-title {
+  display: none;
+}
+.callout[data-callout=float] > .callout-content {
+  padding: 0;
+  background: transparent;
+}
+.callout[data-callout=float] > .callout-content > * {
+  margin: 0;
 }
 .markdown-rendered blockquote {
   padding: var(--callout-padding);
   border-radius: var(--callout-radius);
   background: rgb(var(--callout-quote), 0.1);
 }
-.markdown-rendered blockquote cite {
+cite {
+  margin-top: 1em;
   display: block;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
   padding: var(--callout-padding);
   border-radius: var(--callout-radius);
-  --lt-callout-padding-size-start: var(--size-4-6);
+  --lt-callout-padding-size-start: 18px;
   --lt-callout-padding-size-end: var(--size-4-3);
   --lt-callout-padding-start: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-start));
   --lt-callout-padding-end: calc(var(--lt-callout-indent) * var(--lt-callout-padding-size-end));
-  padding-inline-start: var(--lt-callout-padding-start) !important;
+  padding-inline-start: calc(var(--size-4-2) + var(--lt-callout-padding-start)) !important;
   background: rgb(var(--callout-quote), 0.1);
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote :first-child {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote > :first-child {
   margin-top: 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote :last-child {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote > :last-child {
   margin-bottom: 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:21"] {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-1 {
   --lt-callout-indent: 1;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:39"] {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-1:not(.HyperMD-callout) + .HyperMD-quote-1:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-1:not(.HyperMD-callout):has(+ .HyperMD-quote-1:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-2 {
   --lt-callout-indent: 2;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote[style*="padding-inline-start:56"] {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-2:not(.HyperMD-callout) + .HyperMD-quote-2:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-2:not(.HyperMD-callout):has(+ .HyperMD-quote-2:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-3 {
   --lt-callout-indent: 3;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-3:not(.HyperMD-callout) + .HyperMD-quote-3:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-3:not(.HyperMD-callout):has(+ .HyperMD-quote-3:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-4 {
+  --lt-callout-indent: 4;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-4:not(.HyperMD-callout) + .HyperMD-quote-4:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-4:not(.HyperMD-callout):has(+ .HyperMD-quote-4:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-5 {
+  --lt-callout-indent: 5;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-5:not(.HyperMD-callout) + .HyperMD-quote-5:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-5:not(.HyperMD-callout):has(+ .HyperMD-quote-5:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-6 {
+  --lt-callout-indent: 6;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-6:not(.HyperMD-callout) + .HyperMD-quote-6:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-6:not(.HyperMD-callout):has(+ .HyperMD-quote-6:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-7 {
+  --lt-callout-indent: 7;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-7:not(.HyperMD-callout) + .HyperMD-quote-7:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-7:not(.HyperMD-callout):has(+ .HyperMD-quote-7:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-8 {
+  --lt-callout-indent: 8;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-8:not(.HyperMD-callout) + .HyperMD-quote-8:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-8:not(.HyperMD-callout):has(+ .HyperMD-quote-8:not(.HyperMD-callout)) {
+  padding-bottom: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-9 {
+  --lt-callout-indent: 9;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-9:not(.HyperMD-callout) + .HyperMD-quote-9:not(.HyperMD-callout) {
+  padding-top: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-9:not(.HyperMD-callout):has(+ .HyperMD-quote-9:not(.HyperMD-callout)) {
+  padding-bottom: 0;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:has(+ .HyperMD-quote) {
   border-radius: var(--callout-radius) var(--callout-radius) 0 0;
@@ -77,12 +316,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote:has(+ .HyperMD-quote) {
   border-radius: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.HyperMD-callout) + .HyperMD-quote:not(.HyperMD-callout) {
-  padding-top: 0;
-}
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:not(.HyperMD-callout):has(+ .HyperMD-quote:not(.HyperMD-callout)) {
-  padding-bottom: 0;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout {
   padding: var(--callout-padding);
@@ -103,20 +336,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   border: none;
   border-radius: var(--callout-radius);
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout :first-child {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout > :first-child {
   margin-top: 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout :last-child {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout > :last-child {
   margin-bottom: 0;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote {
   padding: var(--callout-padding);
   border-radius: 0 0 var(--callout-radius) var(--callout-radius);
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote :first-child {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote > :first-child {
   margin-top: 0;
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote :last-child {
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote > :last-child {
   margin-bottom: 0;
 }
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.HyperMD-callout + .HyperMD-quote:has(+ .HyperMD-quote) {
@@ -256,6 +489,33 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 .markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers .cm-gutterElement.cm-active:before {
   border-right: 1px solid var(--color-accent);
 }
+.modal.mod-settings .vertical-tab-header {
+  border: none;
+  border-radius: var(--modal-radius);
+}
+.modal .modal-sidebar {
+  border: none;
+  border-radius: var(--modal-radius);
+  transition: width 50ms;
+}
+.modal .community-modal-search-results .community-item {
+  border: none;
+}
+.modal .community-modal-search-results .community-item:not(.is-selected):hover {
+  background-color: var(--background-primary-alt);
+}
+.modal .community-modal-search-results .community-item:not(.is-selected):hover .community-item-name {
+  color: var(--text-accent);
+}
+.modal .community-modal-details {
+  border: none;
+}
+.modal .community-modal-details .modal-setting-nav-bar {
+  border: none;
+}
+.modal .community-modal-details .community-modal-info {
+  padding: var(--size-4-4) var(--size-4-12);
+}
 .prompt {
   background: var(--background-primary);
 }
@@ -303,6 +563,41 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 .suggestion-item.is-selected .suggestion-hotkey {
   color: var(--text-accent);
 }
+.markdown-rendered table {
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.markdown-rendered table > thead > tr {
+  border-bottom: 1px solid var(--background-modifier-border-hover);
+}
+.markdown-rendered table > thead > tr:hover {
+  background-color: var(--background-primary-alt);
+}
+.markdown-rendered table > thead > tr > th {
+  border: none;
+}
+.markdown-rendered table > tbody > tr {
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.markdown-rendered table > tbody > tr:hover {
+  border-bottom: 1px solid var(--background-modifier-border-hover);
+  background-color: var(--background-primary-alt) !important;
+}
+.markdown-rendered table > tbody > tr:has(+ tr:hover) {
+  border-bottom: 1px solid var(--background-modifier-border-hover);
+}
+.markdown-rendered table > tbody > tr > td {
+  border: none;
+}
+.markdown-rendered table > tbody > tr:last-child {
+  border-bottom: none;
+}
+.markdown-rendered table :is(td, th) {
+  padding: var(--size-4-2) var(--size-4-4);
+}
+.markdown-rendered table :is(td, th):hover {
+  background-color: var(--background-secondary) !important;
+}
 .titlebar .titlebar-button svg {
   color: var(--text-muted);
 }
@@ -311,6 +606,37 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 }
 .titlebar .titlebar-button.mod-close:hover svg {
   color: var(--text-normal);
+}
+.tree-item .tree-item-self .tree-item-inner {
+  color: var(--nav-item-color);
+  transition: color 50ms;
+}
+.tree-item .tree-item-self .tree-item-icon svg {
+  transition: color 50ms;
+}
+.tree-item .tree-item-self:hover .tree-item-inner {
+  color: var(--text-accent);
+}
+.tree-item .tree-item-self:hover .tree-item-icon svg {
+  color: var(--text-accent);
+}
+.tree-item .tree-item-self:hover + .tree-item-children {
+  border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
+}
+.tree-item .tree-item-children {
+  transition: border-left-color 50ms;
+}
+.tree-item .tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover) .tree-item-inner,
+.tree-item .tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) .tree-item-inner {
+  color: var(--text-accent);
+}
+.tree-item .tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover) .tree-item-icon svg,
+.tree-item .tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) .tree-item-icon svg {
+  color: var(--text-accent);
+}
+.tree-item .tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover) + .tree-item-children,
+.tree-item .tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) + .tree-item-children {
+  border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
 }
 body {
   --tab-outline-width: 0px;
@@ -348,8 +674,8 @@ body {
   --background-modifier-hover: rgba(var(--mono-rgb-100), 0.075);
   --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.15);
   --background-modifier-border: var(--color-base-30);
-  --background-modifier-border-hover: var(--color-base-35);
-  --background-modifier-border-focus: var(--color-base-40);
+  --background-modifier-border-hover: var(--color-base-50);
+  --background-modifier-border-focus: var(--color-base-50);
   --background-modifier-error-rgb: var(--color-red-rgb);
   --background-modifier-error: var(--color-red);
   --background-modifier-error-hover: var(--color-red);
@@ -538,12 +864,59 @@ body.theme-dark {
 .cm-active .cm-formatting-list-ol {
   color: var(--text-accent);
 }
-.HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
+.HyperMD-header:not(:has(> .cm-formatting-header)) :not(.is-flashing) .cm-header:before {
   content: "# ";
   color: var(--text-faint);
 }
 .HyperMD-header.cm-active .cm-formatting-header {
   color: var(--text-accent);
+}
+.markdown-reading-view h1:before,
+.markdown-reading-view h2:before,
+.markdown-reading-view h3:before,
+.markdown-reading-view h4:before,
+.markdown-reading-view h5:before,
+.markdown-reading-view h6:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+.markdown-rendered div:has(> :is(h1)) + div > h2 {
+  margin-top: 15px;
+}
+.markdown-rendered div:has(> :is(h1, h2)) + div > h3 {
+  margin-top: 15px;
+}
+.markdown-rendered div:has(> :is(h1, h2, h3)) + div > h4 {
+  margin-top: 15px;
+}
+.markdown-rendered div:has(> :is(h1, h2, h3, h4)) + div > h5 {
+  margin-top: 15px;
+}
+.markdown-rendered div:has(> :is(h1, h2, h3, h4, h5)) + div > h6 {
+  margin-top: 15px;
+}
+pre code[class*=language-] {
+  white-space: pre;
+}
+.view-content img:not(.emoji) {
+  display: block;
+  width: 100%;
+}
+.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
+  content: attr(alt);
+  display: block;
+  color: var(--text-muted);
+  font-family: var(--font-interface);
+  font-size: var(--font-smaller);
 }
 textarea,
 input[type=text],

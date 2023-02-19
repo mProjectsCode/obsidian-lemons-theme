@@ -1,4 +1,5 @@
 @use "comment";
+@use "style-settings";
 
 @use "sass:list";
 @use "sass:meta";
@@ -9,6 +10,7 @@
 @use "components/file-tree";
 @use "components/graph-view";
 @use "components/line-numbers";
+@use "components/modal";
 @use "components/prompt";
 @use "components/status-bar";
 @use "components/suggester";
@@ -298,6 +300,28 @@ body.theme-dark {
 	}
 }
 
+// code blocks
+pre {
+	code[class*="language-"] {
+		white-space: pre;
+	}
+}
+
+// images
+
+.view-content img:not(.emoji) {
+	display: block;
+	width: 100%;
+}
+
+.image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
+	content: attr(alt);
+
+	display: block;
+	color: var(--text-muted);
+	font-family: var(--font-interface);
+	font-size: var(--font-smaller);
+}
 
 textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number'] {
 	border: none;

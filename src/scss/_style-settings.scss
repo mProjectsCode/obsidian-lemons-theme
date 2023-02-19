@@ -1,0 +1,115 @@
+/*!
+/* @settings
+name: Lemons Theme
+id: lemons-theme-settings
+collapsed: false
+settings:
+  - 
+	id: lt-set-settings
+	title: Lemons Theme Settings
+	type: heading
+	level: 1
+  - 
+	id: lt-set-mode-toggles
+	title: Mode Toggles
+	type: heading
+	level: 2
+  - 
+	id: lt-set-focus-mode
+	title: Focus Mode
+	description: Disables part of the UI to help you focus.
+	type: class-toggle
+	addCommand: true
+  -
+	id: lt-set-full-width-editor
+	title: Full Width Editor
+	description: Removes the width limit on the editor.
+	type: class-toggle
+	addCommand: true
+ */
+
+.style-settings-heading[data-level="0"] {
+	margin-bottom: var(--size-4-2);
+}
+
+.style-settings-heading {
+	margin-bottom: var(--size-4-2);
+	border: none;
+}
+
+.style-settings-container {
+	margin-left: var(--size-4-1);
+	border-left: 1px solid var(--background-modifier-border);
+	padding-left: var(--size-4-8);
+	padding-bottom: 0;
+
+	.setting-item {
+		border: none;
+	}
+}
+
+.style-settings-heading[data-level="0"] + .style-settings-container .style-settings-collapse-indicator {
+	margin: 0 var(--size-4-2) 0 0;
+}
+
+.workspace-ribbon.mod-left.is-collapsed {
+	transition: background-color 0ms;
+	transition-delay: 250ms;
+}
+
+.sidebar-toggle-button.mod-left {
+	height: var(--header-height);
+}
+
+@keyframes lt-set-focus-mode-sidebar-toggle-button-transition {
+	from { background-color: var(--background-secondary); }
+	to   { background-color: var(--titlebar-background); }
+}
+
+body.lt-set-focus-mode {
+	.workspace {
+		&:not(.is-left-sidedock-open) {
+			.side-dock-actions {
+				display: none;
+			}
+		}
+
+		.workspace-ribbon.is-collapsed {
+			.sidebar-toggle-button.mod-left {
+				animation: lt-set-focus-mode-sidebar-toggle-button-transition 0ms;
+				animation-delay: 250ms;
+				animation-fill-mode: forwards;
+			}
+		}
+
+		.workspace-ribbon {
+			.sidebar-toggle-button.mod-left {
+				background-color: var(--background-secondary);
+			}
+		}
+	}
+
+	--titlebar-background: var(--background-primary);
+	--titlebar-background-focused: var(--background-primary);
+
+	.workspace-tab-header-container {
+		display: none;
+	}
+
+	.status-bar {
+		display: none;
+	}
+
+	.view-header {
+		display: none;
+	}
+
+	.workspace-split.mod-right-split {
+		display: none;
+		width: 0;
+	}
+}
+
+body.lt-set-full-width-editor {
+	--file-line-width: 10000px;
+}

@@ -11,12 +11,89 @@
 	.callout-content {
 		padding: var(--callout-padding);
 
-		:first-child {
+		& > :first-child {
 			margin-top: 0;
 		}
 
-		:last-child {
+		& > :last-child {
 			margin-bottom: 0;
+		}
+	}
+}
+
+.callout[data-callout="row"] {
+	background: transparent;
+
+	& > .callout-title {
+		display: none;
+	}
+
+	& > .callout-content {
+		padding: 0;
+		background: transparent;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		gap: var(--size-4-4);
+
+		> * {
+			flex: 1;
+			margin: 0;
+		}
+	}
+}
+
+.callout[data-callout="grid"] {
+	--lt-callout-grid-columns: 2;
+
+	@for $i from 1 through 5 {
+		&[data-callout-metadata="#{$i}"] {
+			--lt-callout-grid-columns: #{$i};
+		}
+	}
+
+	background: transparent;
+
+	& > .callout-title {
+		display: none;
+	}
+
+	& > .callout-content {
+		padding: 0;
+		background: transparent;
+		display: grid;
+		grid-template-columns: repeat(var(--lt-callout-grid-columns), 1fr);
+		gap: var(--size-4-4);
+
+		> * {
+			margin: 0;
+		}
+	}
+}
+
+.callout[data-callout="float"] {
+	float: right;
+	max-width: 50%;
+	margin-left: 1em;
+	margin-top: 0;
+	background: transparent;
+
+	&[data-callout-metadata="left"] {
+		float: left;
+		margin-left: 0;
+		margin-right: 1em;
+	}
+
+	& > .callout-title {
+		display: none;
+	}
+
+	& > .callout-content {
+		padding: 0;
+		background: transparent;
+
+		> * {
+			margin: 0;
 		}
 	}
 }
@@ -25,10 +102,11 @@
 	padding: var(--callout-padding);
 	border-radius: var(--callout-radius);
 	background: rgb(var(--callout-quote), 0.10);
+}
 
-	cite {
-		display: block;
-	}
+cite {
+	margin-top: 1em;
+	display: block;
 }
 
 // live preview callouts
@@ -43,11 +121,11 @@
 		padding-inline-start: calc(var(--size-4-2) + var(--lt-callout-padding-start)) !important;
 		background: rgb(var(--callout-quote), 0.10);
 
-		:first-child {
+		& > :first-child {
 			margin-top: 0;
 		}
 
-		:last-child {
+		& > :last-child {
 			margin-bottom: 0;
 		}
 	}
@@ -109,11 +187,11 @@
 			border-radius: var(--callout-radius);
 		}
 
-		:first-child {
+		& > :first-child {
 			margin-top: 0;
 		}
 
-		:last-child {
+		& > :last-child {
 			margin-bottom: 0;
 		}
 	}
@@ -123,11 +201,11 @@
 		padding: var(--callout-padding);
 		border-radius: 0 0 var(--callout-radius) var(--callout-radius);
 
-		:first-child {
+		& > :first-child {
 			margin-top: 0;
 		}
 
-		:last-child {
+		& > :last-child {
 			margin-bottom: 0;
 		}
 	}

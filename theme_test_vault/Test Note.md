@@ -22,7 +22,17 @@ Nam ultricies tellus at ligula luctus, sed vestibulum libero condimentum. In hac
 
 Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
 
+---
+
 [[Test Note 2]]
+
+[Lemons Theme](https://mprojectscode.github.io/coding-projects/LemonsTheme/)
+
+![](https://raw.githubusercontent.com/mProjectsCode/obsidian-lemons-theme/master/lemons-theme-picture.PNG)
+
+![Lemons Theme Picture](https://raw.githubusercontent.com/mProjectsCode/obsidian-lemons-theme/master/lemons-theme-picture.PNG)
+
+![[lemons-theme-test-image.PNG|Lemon theme test image]]
 
 ---
 
@@ -83,6 +93,49 @@ Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur 
 > > > test
 > > > aaaa
 
+Row
+> [!row]
+> > [!info]
+> > hello
+> 
+> > [!warning]
+> > world, hello world, hello world 
+> 
+> > [!danger]
+> > !
+
+Grid
+> [!grid|2]
+> > [!info]
+> > hello
+> 
+> > [!warning]
+> > world, hello world, hello world 
+> 
+> > [!danger]
+> > !
+
+Non callout Grid
+> [!grid|2]
+> ![[lemons-theme-test-image.PNG|Lemon theme test image]]
+> 
+> Test
+> 
+> > Quote
+> 
+> _This is a non callout grid_
+
+Floating Callouts
+
+Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
+
+> [!float|right]
+> > [!quote]
+> > Two things are infinite: the universe and human stupidity; and I'm not sure about the universe. <cite>- Albert Einstein</cite>
+
+Donec a mauris at velit ultrices volutpat. Aenean convallis, justo ut efficitur fringilla, nisi magna blandit velit, a finibus turpis ex sollicitudin sapien. Nulla facilisi. Cras quis auctor orci. Curabitur lacinia posuere erat et consectetur. Ut vel pellentesque leo. Mauris elit nisi, ullamcorper nec eros eu, hendrerit tristique ex. Sed laoreet nulla sit amet massa vehicula tincidunt. Curabitur hendrerit egestas purus, porttitor condimentum lectus sagittis et.
+
+
 ---
 
 - test
@@ -119,11 +172,9 @@ if (true) {
 }
 
 for (const i in [1, 2, 3]) {
-	if (i === 2) continue;
+	if (i === 2) continue; if (i === 2) continue; if (i === 2) continue; if (i === 2) continue;
 	console.log(i);
 }
 ```
 
 ---
-
-![]
