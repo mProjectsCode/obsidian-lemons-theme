@@ -26,6 +26,10 @@
 
 	.tree-item-children {
 		transition: border-left-color 50ms;
+
+		& > :only-child {
+			display: none;
+		}
 	}
 
 	.tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover),

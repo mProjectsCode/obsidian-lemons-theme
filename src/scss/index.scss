@@ -18,6 +18,8 @@
 @use "components/titlebar";
 @use "components/tree";
 
+@use "plugins/plugins";
+
 @function to_RGB_arguments($color) {
 	@return red($color) + ", " + green($color) + ", " + blue($color);
 }
@@ -46,6 +48,8 @@ $dark-color-base-40: #505050;
 $dark-color-base-50: #707070;
 $dark-color-base-60: #909090;
 $dark-color-base-70: #a0a0a0;
+$dark-color-base-80: #c0c0c0;
+$dark-color-base-90: #e0e0e0;
 $dark-color-base-100: #ffffff;
 
 body {
@@ -84,6 +88,8 @@ body {
 	--lt-list-bullet-height: 2px;
 	--lt-list-bullet-width: 6px;
 
+	--lt-file-icon-color: var(--text-faint);
+
 
 	/* Color mappings ------------------------ */
 	/* Accent HSL values */
@@ -92,8 +98,9 @@ body {
 	//--accent-l: 70%;
 
 	--accent-h: #{hue($color-accent)}; //45
-	--accent-s: #{saturation($color-accent)};// 78%;
-	--accent-l: #{lightness($color-accent)};// 67%;
+	//--accent-h: 100; //45
+	--accent-s: #{saturation($color-accent)}; // 78%;
+	--accent-l: #{lightness($color-accent)}; // 67%;
 
 	/* Backgrounds */
 	--background-primary: var(--color-base-00);
@@ -165,6 +172,8 @@ body {
 	--color-base-50: #{$dark-color-base-50};
 	--color-base-60: #{$dark-color-base-60};
 	--color-base-70: #{$dark-color-base-70};
+	--color-base-80: #{$dark-color-base-80};
+	--color-base-90: #{$dark-color-base-90};
 	--color-base-100: #{$dark-color-base-100};
 
 	--color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
@@ -189,15 +198,15 @@ body {
 
 body {
 	--font-default: var(--font-monospace);
-	--font-monospace-default: Menlo, SFMono-Regular, Consolas, 'Roboto Mono', 'Source Code Pro', monospace;
-	--font-interface-override: '??';
-	--font-interface-theme: '??';
-	--font-interface: var(--font-interface-override), var(--font-interface-theme), var(--default-font, '??'), var(--font-default);
-	--font-text-override: '??';
-	--font-text-theme: '??';
+	--font-monospace-default: Menlo, SFMono-Regular, Consolas, "Roboto Mono", "Source Code Pro", monospace;
+	--font-interface-override: "??";
+	--font-interface-theme: "??";
+	--font-interface: var(--font-interface-override), var(--font-interface-theme), var(--default-font, "??"), var(--font-default);
+	--font-text-override: "??";
+	--font-text-theme: "??";
 	--font-text: var(--font-text-override), var(--font-text-theme), var(--font-interface);
-	--font-monospace-override: '??';
-	--font-monospace-theme: '??';
+	--font-monospace-override: "??";
+	--font-monospace-theme: "??";
 	--font-monospace: var(--font-monospace-override), var(--font-monospace-theme), var(--font-monospace-default);
 	--font-text-size: 16px;
 	--font-mermaid: var(--font-text);
@@ -245,12 +254,16 @@ body.theme-dark {
 	width: var(--lt-list-bullet-width);
 }
 
-.cm-active .list-bullet:after {
-	background-color: var(--text-accent);
+.cm-active .cm-formatting.cm-formatting-list.cm-formatting-list-ul {
+	color: var(--text-accent);
 }
 
-.cm-active .cm-formatting-list-ol {
+.cm-active .cm-formatting.cm-formatting-list.cm-formatting-list-ol {
 	color: var(--text-accent);
+}
+
+.cm-active .list-bullet:after {
+	background-color: var(--text-accent);
 }
 
 // headings
@@ -268,7 +281,7 @@ body.theme-dark {
 }
 
 .markdown-reading-view {
-	h1, h2, h3, h4, h5, h6  {
+	h1, h2, h3, h4, h5, h6 {
 
 		&:before {
 			content: "# ";
@@ -280,7 +293,7 @@ body.theme-dark {
 
 .markdown-rendered {
 	// make heading top margin bigger
-	h1, h2, h3, h4, h5, h6  {
+	h1, h2, h3, h4, h5, h6 {
 		margin-top: 45px;
 		margin-bottom: 15px;
 	}
@@ -323,6 +336,6 @@ pre {
 	font-size: var(--font-smaller);
 }
 
-textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number'] {
+textarea, input[type="text"], input[type="search"], input[type="email"], input[type="password"], input[type="number"] {
 	border: none;
 }

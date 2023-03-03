@@ -1,0 +1,29 @@
+.meta-bind-plugin-card {
+	& > :first-child {
+		margin-top: 0;
+	}
+
+	& > :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.meta-bind-plugin-select-input-element .meta-bind-plugin-select-input-element-hover {
+	color: var(--text-accent);
+}
+
+.meta-bind-plugin-select-input-element .meta-bind-plugin-select-input-element-selected {
+	color: var(--text-on-accent);
+	background-color: var(--color-accent);
+	border: none;
+}
+
+.meta-bind-plugin-input-wrapper select.meta-bind-plugin-input-element-group-element {
+	background: var(--background-secondary);
+}
+
+.meta-bind-plugin-input-wrapper {
+	input {
+		background: var(--background-secondary);
+	}
+}

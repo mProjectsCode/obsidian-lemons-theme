@@ -13,11 +13,13 @@ import time from 'esbuild-plugin-time';
 config();
 
 const prod = process.argv[2] === "production";
-const dir = prod ? "./" : "theme_test_vault/.obsidian/themes";
+const devF = process.argv[2] === "f";
+const dir = prod ? "./" : (devF ? "./" : "theme_test_vault/.obsidian/themes");
 
 /** Paths for final file */
 const fileProd = `${dir}/theme.css`;
 const fileDev = `${dir}/LemonsDev.css`;
+const fileDevF = `${dir}/LemonsDev.css`;
 
 esbuild.build({
 	/** Entry point should be where everything is imported into. */
@@ -26,7 +28,7 @@ esbuild.build({
 	/** npm run dev will watch for file changes and rebuild instantly. */
 	watch: !prod,
 	logLevel: "info",
-	outfile: prod ? fileProd : fileDev,
+	outfile: prod ? fileProd : (devF ? fileDevF : fileDev),
 	// minify: true,
 	plugins: [
 		sassPlugin({

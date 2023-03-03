@@ -1159,26 +1159,6 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 .tree-item .tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) + .tree-item-children {
   border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
 }
-.meta-bind-plugin-card > :first-child {
-  margin-top: 0;
-}
-.meta-bind-plugin-card > :last-child {
-  margin-bottom: 0;
-}
-.meta-bind-plugin-select-input-element .meta-bind-plugin-select-input-element-hover {
-  color: var(--text-accent);
-}
-.meta-bind-plugin-select-input-element .meta-bind-plugin-select-input-element-selected {
-  color: var(--text-on-accent);
-  background-color: var(--color-accent);
-  border: none;
-}
-.meta-bind-plugin-input-wrapper select.meta-bind-plugin-input-element-group-element {
-  background: var(--background-secondary);
-}
-.meta-bind-plugin-input-wrapper input {
-  background: var(--background-secondary);
-}
 body {
   --tab-outline-width: 0px;
   --modal-border-width: 0px;
