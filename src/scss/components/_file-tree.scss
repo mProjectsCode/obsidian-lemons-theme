@@ -60,63 +60,30 @@ $format-cog: "bak", "cab", "cfg", "cpl", "cur", "dll", "dmp", "drv", "icns", "ic
 $format-text: "doc", "docx", "odt", "pdf", "rtf", "tex", "txt", "wpd";
 
 .nav-files-container {
-	.nav-folder {
-		.nav-folder-collapse-indicator svg {
-			transition: color 50ms;
-		}
+	.tree-item-self {
+		align-items: center;
 
-		.nav-folder-title-content {
+		.tree-item-inner {
 			display: flex;
-			transition: color 50ms;
 		}
+	}
 
-		.nav-folder-children {
-			transition: border-left-color 50ms;
-		}
 
-		.nav-folder-title:not([data-path="/"]):hover {
-			--lt-file-icon-color: var(--color-accent);
-
-			.nav-folder-collapse-indicator svg {
-				color: var(--text-accent);
+	.nav-folder {
+		&.mod-root {
+			& > .tree-item-self {
+				.tree-item-inner {
+					color: var(--nav-item-color) !important;
+				}
 			}
 
-			& + .nav-folder-children {
-				border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
-			}
-		}
-
-		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover),
-		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active),
-		.nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) {
-			--lt-file-icon-color: var(--color-accent);
-
-			.nav-folder-collapse-indicator svg {
-				color: var(--text-accent);
-			}
-
-			.nav-folder-title-content {
-				color: var(--text-accent);
-			}
-
-			& + .nav-folder-children {
-				border-left-color: var(--color-accent);
+			& > .tree-item-children {
+				border-left: none !important;
 			}
 		}
 	}
 
 	.nav-file {
-		.nav-file-title {
-			align-items: center;
-
-			&:not(.is-active):hover {
-				--lt-file-icon-color: var(--color-accent);
-			}
-
-			.nav-file-title-content {
-				display: flex;
-			}
-		}
 	}
 }
 

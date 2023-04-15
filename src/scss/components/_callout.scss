@@ -98,6 +98,26 @@
 	}
 }
 
+.callout[data-callout="invisible"] {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+
+	& > .callout-title {
+		display: none;
+	}
+
+	& > .callout-content {
+		padding: 0;
+		background: transparent;
+
+		> * {
+			margin: 0;
+		}
+	}
+}
+
+
 .markdown-rendered blockquote {
 	padding: var(--callout-padding);
 	border-radius: var(--callout-radius);

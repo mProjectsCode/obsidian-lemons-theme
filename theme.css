@@ -207,6 +207,21 @@ body.lt-set-full-width-editor {
 .callout[data-callout=float] > .callout-content > * {
   margin: 0;
 }
+.callout[data-callout=invisible] {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+.callout[data-callout=invisible] > .callout-title {
+  display: none;
+}
+.callout[data-callout=invisible] > .callout-content {
+  padding: 0;
+  background: transparent;
+}
+.callout[data-callout=invisible] > .callout-content > * {
+  margin: 0;
+}
 .markdown-rendered blockquote {
   padding: var(--callout-padding);
   border-radius: var(--callout-radius);
@@ -413,53 +428,17 @@ cite {
  *
  * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-.nav-files-container .nav-folder .nav-folder-collapse-indicator svg {
-  transition: color 50ms;
-}
-.nav-files-container .nav-folder .nav-folder-title-content {
-  display: flex;
-  transition: color 50ms;
-}
-.nav-files-container .nav-folder .nav-folder-children {
-  transition: border-left-color 50ms;
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover {
-  --lt-file-icon-color: var(--color-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover .nav-folder-collapse-indicator svg {
-  color: var(--text-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):hover + .nav-folder-children {
-  border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover),
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active),
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) {
-  --lt-file-icon-color: var(--color-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) .nav-folder-collapse-indicator svg,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) .nav-folder-collapse-indicator svg,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) .nav-folder-collapse-indicator svg {
-  color: var(--text-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) .nav-folder-title-content,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) .nav-folder-title-content,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) .nav-folder-title-content {
-  color: var(--text-accent);
-}
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file:hover) + .nav-folder-children,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-file > .is-active) + .nav-folder-children,
-.nav-files-container .nav-folder .nav-folder-title:not([data-path="/"]):has(+ .nav-folder-children > .nav-folder.is-collapsed:hover) + .nav-folder-children {
-  border-left-color: var(--color-accent);
-}
-.nav-files-container .nav-file .nav-file-title {
+.nav-files-container .tree-item-self {
   align-items: center;
 }
-.nav-files-container .nav-file .nav-file-title:not(.is-active):hover {
-  --lt-file-icon-color: var(--color-accent);
-}
-.nav-files-container .nav-file .nav-file-title .nav-file-title-content {
+.nav-files-container .tree-item-self .tree-item-inner {
   display: flex;
+}
+.nav-files-container .nav-folder.mod-root > .tree-item-self .tree-item-inner {
+  color: var(--nav-item-color) !important;
+}
+.nav-files-container .nav-folder.mod-root > .tree-item-children {
+  border-left: none !important;
 }
 body.lt-set-file-icons .nav-files-container .nav-folder.is-collapsed > .nav-folder-title:not([data-path="/"]) > .nav-folder-title-content:before {
   content: " ";
@@ -1126,13 +1105,19 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
   color: var(--text-normal);
 }
 .tree-item .tree-item-self .tree-item-inner {
+  --lt-file-icon-color: var(--nav-item-color);
   color: var(--nav-item-color);
   transition: color 50ms;
 }
 .tree-item .tree-item-self .tree-item-icon svg {
   transition: color 50ms;
 }
+.tree-item .tree-item-self.is-active .tree-item-inner {
+  --lt-file-icon-color: var(--nav-item-color-active) !important;
+  color: var(--nav-item-color-active) !important;
+}
 .tree-item .tree-item-self:hover .tree-item-inner {
+  --lt-file-icon-color: var(--text-accent);
   color: var(--text-accent);
 }
 .tree-item .tree-item-self:hover .tree-item-icon svg {
@@ -1149,6 +1134,7 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .tree-item .tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover) .tree-item-inner,
 .tree-item .tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) .tree-item-inner {
+  --lt-file-icon-color: var(--text-accent);
   color: var(--text-accent);
 }
 .tree-item .tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover) .tree-item-icon svg,

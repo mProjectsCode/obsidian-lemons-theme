@@ -1,6 +1,7 @@
 .tree-item {
 	.tree-item-self {
 		.tree-item-inner {
+			--lt-file-icon-color: var(--nav-item-color);
 			color: var(--nav-item-color);
 			transition: color 50ms;
 		}
@@ -9,8 +10,16 @@
 			transition: color 50ms;
 		}
 
+		&.is-active {
+			.tree-item-inner {
+				--lt-file-icon-color: var(--nav-item-color-active) !important;
+				color: var(--nav-item-color-active) !important;
+			}
+		}
+
 		&:hover {
 			.tree-item-inner {
+				--lt-file-icon-color: var(--text-accent);
 				color: var(--text-accent);
 			}
 
@@ -35,6 +44,7 @@
 	.tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover),
 	.tree-item-self:has(+ .tree-item-children > .tree-item.is-collapsed > .tree-item-self.mod-collapsible:hover) {
 		.tree-item-inner {
+			--lt-file-icon-color: var(--text-accent);
 			color: var(--text-accent);
 		}
 
