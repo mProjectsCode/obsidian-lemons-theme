@@ -1,5 +1,12 @@
 .tree-item {
 	.tree-item-self {
+		padding-left: var(--size-4-2) !important;
+		margin-left: 0 !important;
+
+		&.mod-collapsible {
+			padding-left: var(--size-4-6) !important;
+		}
+
 		.tree-item-inner {
 			--lt-file-icon-color: var(--nav-item-color);
 			color: var(--nav-item-color);

@@ -1104,6 +1104,13 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 .titlebar .titlebar-button.mod-close:hover svg {
   color: var(--text-normal);
 }
+.tree-item .tree-item-self {
+  padding-left: var(--size-4-2) !important;
+  margin-left: 0 !important;
+}
+.tree-item .tree-item-self.mod-collapsible {
+  padding-left: var(--size-4-6) !important;
+}
 .tree-item .tree-item-self .tree-item-inner {
   --lt-file-icon-color: var(--nav-item-color);
   color: var(--nav-item-color);
@@ -1181,6 +1188,7 @@ body {
   --nav-item-background-active: var(--color-accent);
   --nav-item-color-active: var(--text-on-accent);
   --nav-item-color-hover: var(--text-accent);
+  --nav-item-children-padding-left: var(--size-4-2);
   --icon-color-focused: var(--text-accent);
   --icon-color-active: var(--text-accent);
   --icon-color-hover: var(--text-accent);
