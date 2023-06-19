@@ -52,6 +52,12 @@ $dark-color-base-80: #c0c0c0;
 $dark-color-base-90: #e0e0e0;
 $dark-color-base-100: #ffffff;
 
+$gradient-pride: linear-gradient(to right, rgb(237, 34, 36), rgb(243, 91, 34), rgb(249, 150, 33), rgb(245, 193, 30), rgb(241, 235, 27) 27%, rgb(241, 235, 27), rgb(241, 235, 27) 33%, rgb(99, 199, 32), rgb(12, 155, 73), rgb(33, 135, 141), rgb(57, 84, 165), rgb(97, 55, 155), rgb(147, 40, 142));
+$gradient-trans: linear-gradient(to right, rgb(85, 205, 252), rgb(179, 157, 233), rgb(247, 168, 184), rgb(246, 216, 221), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(246, 216, 221), rgb(247, 168, 184), rgb(179, 157, 233), rgb(85, 205, 252));
+$gradient-lesbian: linear-gradient(to right, rgb(213, 44, 0), rgb(226, 150, 136), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(210, 127, 164), rgb(162, 2, 98));
+$gradient-gay: linear-gradient(to right, rgb(7, 141, 111), rgb(152, 202, 153), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(205, 208, 234), rgb(123, 173, 226) 70%, rgb(69, 76, 189), rgb(63, 26, 121));
+$gradient-non-bin: linear-gradient(to right, rgb(253, 219, 0), rgb(238, 212, 143), rgb(255, 255, 255) 30%, rgb(255, 255, 255), rgb(255, 255, 255) 36%, rgb(212, 181, 222), rgb(156, 92, 212), rgb(88, 50, 96), rgb(0, 0, 0));
+
 body {
 	--tab-outline-width: 0px;
 	--modal-border-width: 0px;
@@ -73,6 +79,7 @@ body {
 	--nav-item-color-active: var(--text-on-accent);
 	--nav-item-color-hover: var(--text-accent);
 	--nav-item-children-padding-left: var(--size-4-2);
+	--nav-item-padding: var(--size-4-1) var(--size-4-2) var(--size-4-1) var(--size-4-2);
 
 	--icon-color-focused: var(--text-accent);
 	--icon-color-active: var(--text-accent);
@@ -90,6 +97,12 @@ body {
 	--lt-list-bullet-width: 6px;
 
 	--lt-file-icon-color: var(--text-faint);
+
+	--lt-gradient-pride: #{$gradient-pride};
+	--lt-gradient-trans: #{$gradient-trans};
+	--lt-gradient-lesbian: #{$gradient-lesbian};
+	--lt-gradient-gay: #{$gradient-gay};
+	--lt-gradient-non-bin: #{$gradient-non-bin};
 
 
 	/* Color mappings ------------------------ */

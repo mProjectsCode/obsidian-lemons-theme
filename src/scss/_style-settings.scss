@@ -14,6 +14,11 @@ settings:
 	title: File Icons
 	description: Adds file and folder icons for different file types
 	type: class-toggle
+  -
+	id: lt-pride-month-colors
+	title: Pride Month Colors
+	description: Adds some colorful pride month flags to some UI elements.
+	type: class-toggle
   - 
 	id: lt-set-mode-toggles
 	title: Mode Toggles
@@ -121,4 +126,43 @@ body.lt-set-focus-mode {
 
 body.lt-set-full-width-editor {
 	--file-line-width: 10000px;
+}
+
+body.lt-pride-month-colors {
+	.status-bar {
+		background: var(--lt-gradient-pride);
+	}
+
+
+	.vertical-tab-nav-item.is-active:nth-child(5n+1) {
+		background: var(--lt-gradient-pride);
+	}
+	.vertical-tab-nav-item.is-active:nth-child(5n+2) {
+		background: var(--lt-gradient-trans);
+	}
+	.vertical-tab-nav-item.is-active:nth-child(5n+3) {
+		background: var(--lt-gradient-lesbian);
+	}
+	.vertical-tab-nav-item.is-active:nth-child(5n+4) {
+		background: var(--lt-gradient-gay);
+	}
+	.vertical-tab-nav-item.is-active:nth-child(5n+5) {
+		background: var(--lt-gradient-non-bin);
+	}
+
+	.tree-item:nth-child(5n+1) > .tree-item-self.is-active {
+		background: var(--lt-gradient-pride);
+	}
+	.tree-item:nth-child(5n+2) > .tree-item-self.is-active {
+		background: var(--lt-gradient-trans);
+	}
+	.tree-item:nth-child(5n+3) > .tree-item-self.is-active {
+		background: var(--lt-gradient-lesbian);
+	}
+	.tree-item:nth-child(5n+4) > .tree-item-self.is-active {
+		background: var(--lt-gradient-gay);
+	}
+	.tree-item:nth-child(5n+5) > .tree-item-self.is-active {
+		background: var(--lt-gradient-non-bin);
+	}
 }

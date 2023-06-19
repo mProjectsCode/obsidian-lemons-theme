@@ -6,7 +6,6 @@
 
 	.graph-control-section.tree-item {
 		border: none;
-
 		padding: 0;
 
 		.tree-item-self {
@@ -26,22 +25,37 @@
 					border-radius: var(--radius-s);
 					background-color: var(--background-modifier-hover);
 				}
+
+				& + .tree-item-children {
+					border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
+				}
+			}
+
+			&:has(+ .tree-item-children:hover) {
+				.graph-control-section-header {
+					color: var(--text-accent);
+				}
+
+				.tree-item-icon svg {
+					color: var(--text-accent);
+				}
 			}
 		}
 
 		.tree-item-children {
-			padding: 0 var(--size-4-2) 0 var(--size-4-6);
-
+			padding-right: var(--size-4-2);
+			padding-left: var(--nav-item-children-padding-left);
+			margin-left: var(--nav-item-children-margin-left);
+			border-left: var(--nav-indentation-guide-width) solid var(--nav-indentation-guide-color);
 			position: relative;
 
-			&:before {
-				content: "";
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 12px;
-				width: 2px;
-				background-color: var(--background-modifier-border);
+
+			&:hover {
+				border-left: var(--nav-indentation-guide-width) solid var(--color-accent);
+			}
+
+			.setting-item {
+				padding: var(--nav-item-padding);
 			}
 		}
 	}
