@@ -8,7 +8,7 @@
 				border-bottom: 1px solid var(--background-modifier-border-hover);
 
 				&:hover {
-					background-color: var(--background-primary-alt);
+					background-color: var(--background-modifier-hover);
 				}
 
 				& > th {
@@ -23,7 +23,7 @@
 
 				&:hover {
 					border-bottom: 1px solid var(--background-modifier-border-hover);
-					background-color: var(--background-primary-alt) !important;
+					background-color: var(--background-modifier-hover) !important;
 				}
 
 				&:has(+ tr:hover) {
@@ -44,7 +44,7 @@
 			padding: var(--size-4-2) var(--size-4-4);
 
 			&:hover {
-				background-color: var(--background-secondary) !important;
+				background-color: var(--background-modifier-hover) !important;
 			}
 		}
 	}

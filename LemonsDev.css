@@ -39,6 +39,11 @@ settings:
 	title: Pride Month Colors
 	description: Adds some colorful pride month flags to some UI elements.
 	type: class-toggle
+  -
+	id: lt-hide-tab-title-bar-file-name
+	title: Hide Tab Title Bar File Name
+	description: Hide the file name in the tab title bar. Who needs to see the tab title three times anyways.
+	type: class-toggle
   - 
 	id: lt-set-mode-toggles
 	title: Mode Toggles
@@ -154,6 +159,9 @@ body.lt-pride-month-colors .tree-item:nth-child(5n+4) > .tree-item-self.is-activ
 }
 body.lt-pride-month-colors .tree-item:nth-child(5n+5) > .tree-item-self.is-active {
   background: var(--lt-gradient-non-bin);
+}
+body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-title {
+  display: none;
 }
 .callout {
   padding: 0;
@@ -1115,7 +1123,7 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
   border-bottom: 1px solid var(--background-modifier-border-hover);
 }
 .markdown-rendered table > thead > tr:hover {
-  background-color: var(--background-primary-alt);
+  background-color: var(--background-modifier-hover);
 }
 .markdown-rendered table > thead > tr > th {
   border: none;
@@ -1125,7 +1133,7 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table > tbody > tr:hover {
   border-bottom: 1px solid var(--background-modifier-border-hover);
-  background-color: var(--background-primary-alt) !important;
+  background-color: var(--background-modifier-hover) !important;
 }
 .markdown-rendered table > tbody > tr:has(+ tr:hover) {
   border-bottom: 1px solid var(--background-modifier-border-hover);
@@ -1140,7 +1148,7 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
   padding: var(--size-4-2) var(--size-4-4);
 }
 .markdown-rendered table :is(td, th):hover {
-  background-color: var(--background-secondary) !important;
+  background-color: var(--background-modifier-hover) !important;
 }
 .titlebar .titlebar-button svg {
   color: var(--text-muted);
@@ -1429,6 +1437,12 @@ body.theme-dark {
   border-top-left-radius: var(--radius-l);
   border-bottom-left-radius: var(--radius-l);
 }
+.workspace-tab-header:hover {
+  color: var(--text-accent);
+}
+.workspace-tab-header:hover .workspace-tab-header-inner-icon > svg {
+  color: var(--text-accent);
+}
 .menu {
   border: none;
   background: var(--background-secondary-alt);
@@ -1445,6 +1459,9 @@ body.theme-dark {
 .menu .menu-item.is-warning.selected .menu-item-icon {
   color: var(--text-error);
 }
+.metadata-container .metadata-property:focus-within {
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
 .list-bullet:after {
   height: var(--lt-list-bullet-height);
   width: var(--lt-list-bullet-width);
@@ -1458,12 +1475,60 @@ body.theme-dark {
 .cm-active .list-bullet:after {
   background-color: var(--text-accent);
 }
-.HyperMD-header:not(:has(> .cm-formatting-header)) :not(.is-flashing) .cm-header:before {
+.markdown-source-view.is-live-preview .HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
   content: "# ";
   color: var(--text-faint);
 }
 .HyperMD-header.cm-active .cm-formatting-header {
   color: var(--text-accent);
+}
+.markdown-reading-view h1:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h1:hover:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h2:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h2:hover:before {
+  content: "## ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h3:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h3:hover:before {
+  content: "### ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h4:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h4:hover:before {
+  content: "#### ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h5:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h5:hover:before {
+  content: "##### ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h6:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+.markdown-reading-view h6:hover:before {
+  content: "###### ";
+  color: var(--text-faint);
 }
 .markdown-reading-view h1:before,
 .markdown-reading-view h2:before,

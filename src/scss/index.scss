@@ -241,6 +241,19 @@ body.theme-dark {
 	border-bottom-left-radius: var(--radius-l);
 }
 
+.workspace-tab-header {
+	&:hover {
+		color: var(--text-accent);
+
+		.workspace-tab-header-inner-icon > svg {
+			color: var(--text-accent);
+		}
+
+	}
+}
+
+
+
 .menu {
 	border: none;
 	background: var(--background-secondary-alt);
@@ -262,6 +275,17 @@ body.theme-dark {
 	}
 }
 
+// metadata
+.metadata-container {
+	.metadata-property:focus-within {
+		box-shadow: 0 0 0 1px var(--color-accent);
+	}
+
+	//.metadata-property:hover:not(:focus-within) {
+	//	box-shadow: 0 0 0 1px var(--color-accent);
+	//}
+}
+
 // lists
 .list-bullet:after {
 	height: var(--lt-list-bullet-height);
@@ -281,10 +305,13 @@ body.theme-dark {
 }
 
 // headings
-.HyperMD-header:not(:has(> .cm-formatting-header)) :not(.is-flashing) .cm-header {
-	&:before {
-		content: "# ";
-		color: var(--text-faint);
+
+.markdown-source-view.is-live-preview {
+	.HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header {
+		&:before {
+			content: "# ";
+			color: var(--text-faint);
+		}
 	}
 }
 
@@ -295,15 +322,32 @@ body.theme-dark {
 }
 
 .markdown-reading-view {
-	h1, h2, h3, h4, h5, h6 {
+	@for $i from 1 through 6 {
+		h#{$i} {
+			&:before {
+				content: "# ";
+				color: var(--text-faint);
+			}
 
+			&:hover:before {
+				$c: '#';
+				@for $j from 1 to $i {
+					$c: $c + '#'
+				}
+
+				content: "#{$c} ";
+				color: var(--text-faint);
+			}
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
 		&:before {
 			content: "# ";
 			color: var(--text-faint);
 		}
 	}
 }
-
 
 .markdown-rendered {
 	// make heading top margin bigger
