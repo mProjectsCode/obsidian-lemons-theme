@@ -1,6 +1,6 @@
 {
     "name": "obsidian-lemons-theme",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "scripts": {
 		"dev": "node ./esbuild.config.mjs",
 		"dev-f": "node ./esbuild.config.mjs f",

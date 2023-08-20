@@ -380,11 +380,6 @@ pre {
 
 // images
 
-.view-content img:not(.emoji) {
-	display: block;
-	width: 100%;
-}
-
 .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
 	content: attr(alt);
 
