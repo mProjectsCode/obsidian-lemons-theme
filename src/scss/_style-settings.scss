@@ -24,6 +24,17 @@ settings:
 	title: Hide Tab Title Bar File Name
 	description: Hide the file name in the tab title bar. Who needs to see the tab title three times anyways.
 	type: class-toggle
+  -
+	id: lt-accent-headings
+	title: More Visible Headings
+	description: Colors the heading in the accent color to make them more visible.
+	type: class-toggle
+  -
+	id: lt-hashtag-headings
+	title: Hashtag Headings
+	description: Prefix headings with a hashtag even in reading mode.
+	type: class-toggle
+	default: true
   - 
 	id: lt-set-mode-toggles
 	title: Mode Toggles
@@ -175,5 +186,70 @@ body.lt-pride-month-colors {
 body.lt-hide-tab-title-bar-file-name {
 	.view-header-title-container .view-header-title {
 		display: none;
+	}
+}
+
+body.lt-accent-headings {
+	.markdown-reading-view {
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--text-accent);
+		}
+	}
+
+	.markdown-rendered {
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--text-accent);
+		}
+	}
+
+	.markdown-source-view.is-live-preview {
+		.HyperMD-header .cm-header {
+			color: var(--text-accent);
+		}
+	}
+}
+
+body.lt-hashtag-headings {
+	.markdown-source-view.is-live-preview {
+		.HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header {
+			&:before {
+				content: "# ";
+				color: var(--text-faint);
+			}
+		}
+	}
+
+	.HyperMD-header.cm-active {
+		.cm-formatting-header {
+			color: var(--text-accent);
+		}
+	}
+
+	.markdown-reading-view {
+		@for $i from 1 through 6 {
+			h#{$i} {
+				&:before {
+					content: "# ";
+					color: var(--text-faint);
+				}
+
+				&:hover:before {
+					$c: '#';
+					@for $j from 1 to $i {
+						$c: $c + '#'
+					}
+
+					content: "#{$c} ";
+					color: var(--text-faint);
+				}
+			}
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			&:before {
+				content: "# ";
+				color: var(--text-faint);
+			}
+		}
 	}
 }

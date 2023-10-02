@@ -44,6 +44,17 @@ settings:
 	title: Hide Tab Title Bar File Name
 	description: Hide the file name in the tab title bar. Who needs to see the tab title three times anyways.
 	type: class-toggle
+  -
+	id: lt-accent-headings
+	title: More Visible Headings
+	description: Colors the heading in the accent color to make them more visible.
+	type: class-toggle
+  -
+	id: lt-hashtag-headings
+	title: Hashtag Headings
+	description: Prefix headings with a hashtag even in reading mode.
+	type: class-toggle
+	default: true
   - 
 	id: lt-set-mode-toggles
 	title: Mode Toggles
@@ -163,6 +174,89 @@ body.lt-pride-month-colors .tree-item:nth-child(5n+5) > .tree-item-self.is-activ
 body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-title {
   display: none;
 }
+body.lt-accent-headings .markdown-reading-view h1,
+body.lt-accent-headings .markdown-reading-view h2,
+body.lt-accent-headings .markdown-reading-view h3,
+body.lt-accent-headings .markdown-reading-view h4,
+body.lt-accent-headings .markdown-reading-view h5,
+body.lt-accent-headings .markdown-reading-view h6 {
+  color: var(--text-accent);
+}
+body.lt-accent-headings .markdown-rendered h1,
+body.lt-accent-headings .markdown-rendered h2,
+body.lt-accent-headings .markdown-rendered h3,
+body.lt-accent-headings .markdown-rendered h4,
+body.lt-accent-headings .markdown-rendered h5,
+body.lt-accent-headings .markdown-rendered h6 {
+  color: var(--text-accent);
+}
+body.lt-accent-headings .markdown-source-view.is-live-preview .HyperMD-header .cm-header {
+  color: var(--text-accent);
+}
+body.lt-hashtag-headings .markdown-source-view.is-live-preview .HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .HyperMD-header.cm-active .cm-formatting-header {
+  color: var(--text-accent);
+}
+body.lt-hashtag-headings .markdown-reading-view h1:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h1:hover:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h2:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h2:hover:before {
+  content: "## ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h3:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h3:hover:before {
+  content: "### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h4:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h4:hover:before {
+  content: "#### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h5:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h5:hover:before {
+  content: "##### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h6:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h6:hover:before {
+  content: "###### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h1:before,
+body.lt-hashtag-headings .markdown-reading-view h2:before,
+body.lt-hashtag-headings .markdown-reading-view h3:before,
+body.lt-hashtag-headings .markdown-reading-view h4:before,
+body.lt-hashtag-headings .markdown-reading-view h5:before,
+body.lt-hashtag-headings .markdown-reading-view h6:before {
+  content: "# ";
+  color: var(--text-faint);
+}
 .callout {
   padding: 0;
   background: rgb(var(--callout-color), 0.1);
@@ -181,13 +275,13 @@ body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-t
 .callout .callout-content > :last-child {
   margin-bottom: 0;
 }
-.callout[data-callout=row] {
+.callout[data-callout-metadata=row] {
   background: transparent;
 }
-.callout[data-callout=row] > .callout-title {
+.callout[data-callout-metadata=row] > .callout-title {
   display: none;
 }
-.callout[data-callout=row] > .callout-content {
+.callout[data-callout-metadata=row] > .callout-content {
   padding: 0;
   background: transparent;
   display: flex;
@@ -195,77 +289,77 @@ body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-t
   flex-wrap: nowrap;
   gap: var(--size-4-4);
 }
-.callout[data-callout=row] > .callout-content > * {
+.callout[data-callout-metadata=row] > .callout-content > * {
   flex: 1;
   margin: 0;
 }
-.callout[data-callout=grid] {
+.callout[data-callout-metadata=grid] {
   --lt-callout-grid-columns: 2;
   background: transparent;
 }
-.callout[data-callout=grid][data-callout-metadata="1"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="1"] {
   --lt-callout-grid-columns: 1;
 }
-.callout[data-callout=grid][data-callout-metadata="2"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="2"] {
   --lt-callout-grid-columns: 2;
 }
-.callout[data-callout=grid][data-callout-metadata="3"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="3"] {
   --lt-callout-grid-columns: 3;
 }
-.callout[data-callout=grid][data-callout-metadata="4"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="4"] {
   --lt-callout-grid-columns: 4;
 }
-.callout[data-callout=grid][data-callout-metadata="5"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="5"] {
   --lt-callout-grid-columns: 5;
 }
-.callout[data-callout=grid] > .callout-title {
+.callout[data-callout-metadata=grid] > .callout-title {
   display: none;
 }
-.callout[data-callout=grid] > .callout-content {
+.callout[data-callout-metadata=grid] > .callout-content {
   padding: 0;
   background: transparent;
   display: grid;
   grid-template-columns: repeat(var(--lt-callout-grid-columns), 1fr);
   gap: var(--size-4-4);
 }
-.callout[data-callout=grid] > .callout-content > * {
+.callout[data-callout-metadata=grid] > .callout-content > * {
   margin: 0;
 }
-.callout[data-callout=float] {
+.callout[data-callout-metadata=float] {
   float: right;
   max-width: 50%;
   margin-left: 1em;
   margin-top: 0;
   background: transparent;
 }
-.callout[data-callout=float][data-callout-metadata=left] {
+.callout[data-callout-metadata=float][data-callout-metadata=left] {
   float: left;
   margin-left: 0;
   margin-right: 1em;
 }
-.callout[data-callout=float] > .callout-title {
+.callout[data-callout-metadata=float] > .callout-title {
   display: none;
 }
-.callout[data-callout=float] > .callout-content {
+.callout[data-callout-metadata=float] > .callout-content {
   padding: 0;
   background: transparent;
 }
-.callout[data-callout=float] > .callout-content > * {
+.callout[data-callout-metadata=float] > .callout-content > * {
   margin: 0;
 }
-.callout[data-callout=invisible] {
+.callout[data-callout-metadata=invisible] {
   margin: 0;
   padding: 0;
   background: transparent;
 }
-.callout[data-callout=invisible] > .callout-title {
+.callout[data-callout-metadata=invisible] > .callout-title {
   display: none;
 }
-.callout[data-callout=invisible] > .callout-content {
+.callout[data-callout-metadata=invisible] > .callout-content {
   padding: 0;
   background: transparent;
 }
-.callout[data-callout=invisible] > .callout-content > * {
+.callout[data-callout-metadata=invisible] > .callout-content > * {
   margin: 0;
 }
 .markdown-rendered blockquote {
@@ -1474,70 +1568,6 @@ body.theme-dark {
 }
 .cm-active .list-bullet:after {
   background-color: var(--text-accent);
-}
-.markdown-source-view.is-live-preview .HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.HyperMD-header.cm-active .cm-formatting-header {
-  color: var(--text-accent);
-}
-.markdown-reading-view h1:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h1:hover:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h2:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h2:hover:before {
-  content: "## ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h3:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h3:hover:before {
-  content: "### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h4:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h4:hover:before {
-  content: "#### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h5:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h5:hover:before {
-  content: "##### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h6:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h6:hover:before {
-  content: "###### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h1:before,
-.markdown-reading-view h2:before,
-.markdown-reading-view h3:before,
-.markdown-reading-view h4:before,
-.markdown-reading-view h5:before,
-.markdown-reading-view h6:before {
-  content: "# ";
-  color: var(--text-faint);
 }
 .markdown-rendered h1,
 .markdown-rendered h2,

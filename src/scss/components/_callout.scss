@@ -21,7 +21,7 @@
 	}
 }
 
-.callout[data-callout="row"] {
+.callout[data-callout-metadata="row"] {
 	background: transparent;
 
 	& > .callout-title {
@@ -43,7 +43,7 @@
 	}
 }
 
-.callout[data-callout="grid"] {
+.callout[data-callout-metadata="grid"] {
 	--lt-callout-grid-columns: 2;
 
 	@for $i from 1 through 5 {
@@ -71,7 +71,7 @@
 	}
 }
 
-.callout[data-callout="float"] {
+.callout[data-callout-metadata="float"] {
 	float: right;
 	max-width: 50%;
 	margin-left: 1em;
@@ -98,7 +98,7 @@
 	}
 }
 
-.callout[data-callout="invisible"] {
+.callout[data-callout-metadata="invisible"] {
 	margin: 0;
 	padding: 0;
 	background: transparent;

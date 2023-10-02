@@ -306,49 +306,6 @@ body.theme-dark {
 
 // headings
 
-.markdown-source-view.is-live-preview {
-	.HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header {
-		&:before {
-			content: "# ";
-			color: var(--text-faint);
-		}
-	}
-}
-
-.HyperMD-header.cm-active {
-	.cm-formatting-header {
-		color: var(--text-accent);
-	}
-}
-
-.markdown-reading-view {
-	@for $i from 1 through 6 {
-		h#{$i} {
-			&:before {
-				content: "# ";
-				color: var(--text-faint);
-			}
-
-			&:hover:before {
-				$c: '#';
-				@for $j from 1 to $i {
-					$c: $c + '#'
-				}
-
-				content: "#{$c} ";
-				color: var(--text-faint);
-			}
-		}
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		&:before {
-			content: "# ";
-			color: var(--text-faint);
-		}
-	}
-}
-
 .markdown-rendered {
 	// make heading top margin bigger
 	h1, h2, h3, h4, h5, h6 {
