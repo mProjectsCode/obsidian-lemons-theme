@@ -1,5 +1,8 @@
 .tree-item {
 	.tree-item-self {
+		&:has(> .tree-item-icon) {
+			padding-left: var(--size-4-6) !important;
+		}
 		padding-left: var(--size-4-2) !important;
 		margin-left: 0 !important;
 

@@ -1257,6 +1257,9 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
   padding-left: var(--size-4-2) !important;
   margin-left: 0 !important;
 }
+.tree-item .tree-item-self:has(> .tree-item-icon) {
+  padding-left: var(--size-4-6) !important;
+}
 .tree-item .tree-item-self.mod-collapsible {
   padding-left: var(--size-4-6) !important;
 }
@@ -1338,7 +1341,7 @@ body {
   --nav-item-color-active: var(--text-on-accent);
   --nav-item-color-hover: var(--text-accent);
   --nav-item-children-padding-left: var(--size-4-2);
-  --nav-item-padding: var(--size-4-1) var(--size-4-2) var(--size-4-1) var(--size-4-2);
+  --nav-item-padding: var(--size-4-1) var(--size-4-2) var(--size-4-1) var(--size-4-6);
   --icon-color-focused: var(--text-accent);
   --icon-color-active: var(--text-accent);
   --icon-color-hover: var(--text-accent);
@@ -1523,12 +1526,16 @@ body.theme-dark {
     112,
     112;
 }
-.workspace-split.mod-horizontal.mod-left-split .workspace-leaf {
+.workspace-split.mod-horizontal.mod-left-split > .workspace-sidedock-empty-state + .workspace-tabs .workspace-leaf {
   border-top-right-radius: var(--radius-l);
+}
+.workspace-split.mod-horizontal.mod-left-split > .workspace-tabs:not(:has(+ .workspace-tabs)) .workspace-leaf {
   border-bottom-right-radius: var(--radius-l);
 }
-.workspace-split.mod-horizontal.mod-right-split .workspace-leaf {
+.workspace-split.mod-horizontal.mod-right-split > .workspace-sidedock-empty-state + .workspace-tabs .workspace-leaf {
   border-top-left-radius: var(--radius-l);
+}
+.workspace-split.mod-horizontal.mod-right-split > .workspace-tabs:not(:has(+ .workspace-tabs)) .workspace-leaf {
   border-bottom-left-radius: var(--radius-l);
 }
 .workspace-tab-header:hover {
