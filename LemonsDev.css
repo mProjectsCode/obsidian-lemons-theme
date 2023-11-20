@@ -292,6 +292,7 @@ body.lt-hashtag-headings .markdown-reading-view h6:before {
 .callout[data-callout-metadata=row] > .callout-content > * {
   flex: 1;
   margin: 0;
+  height: min-content;
 }
 .callout[data-callout-metadata=grid] {
   --lt-callout-grid-columns: 2;
@@ -1211,7 +1212,6 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table {
   border-radius: var(--radius-m);
-  overflow: hidden;
 }
 .markdown-rendered table > thead > tr {
   border-bottom: 1px solid var(--background-modifier-border-hover);
@@ -1221,6 +1221,12 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table > thead > tr > th {
   border: none;
+}
+.markdown-rendered table > thead > tr > th:first-child {
+  border-radius: var(--radius-m) 0 0 0;
+}
+.markdown-rendered table > thead > tr > th:last-child {
+  border-radius: 0 var(--radius-m) 0 0;
 }
 .markdown-rendered table > tbody > tr {
   border-bottom: 1px solid var(--background-modifier-border);
@@ -1237,6 +1243,12 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table > tbody > tr:last-child {
   border-bottom: none;
+}
+.markdown-rendered table > tbody > tr:last-child > td:first-child {
+  border-radius: 0 0 0 var(--radius-m);
+}
+.markdown-rendered table > tbody > tr:last-child > td:last-child {
+  border-radius: 0 0 var(--radius-m) 0;
 }
 .markdown-rendered table :is(td, th) {
   padding: var(--size-4-2) var(--size-4-4);
@@ -1359,6 +1371,8 @@ body {
   --lt-gradient-lesbian: linear-gradient(to right, rgb(213, 44, 0), rgb(226, 150, 136), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(210, 127, 164), rgb(162, 2, 98));
   --lt-gradient-gay: linear-gradient(to right, rgb(7, 141, 111), rgb(152, 202, 153), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(205, 208, 234), rgb(123, 173, 226) 70%, rgb(69, 76, 189), rgb(63, 26, 121));
   --lt-gradient-non-bin: linear-gradient(to right, rgb(253, 219, 0), rgb(238, 212, 143), rgb(255, 255, 255) 30%, rgb(255, 255, 255), rgb(255, 255, 255) 36%, rgb(212, 181, 222), rgb(156, 92, 212), rgb(88, 50, 96), rgb(0, 0, 0));
+  --table-selection-border-radius: var(--radius-m);
+  --table-border-width: 1px;
   --accent-h: 46deg;
   --accent-s: 95%;
   --accent-l: 65%;
@@ -1526,16 +1540,28 @@ body.theme-dark {
     112,
     112;
 }
-.workspace-split.mod-horizontal.mod-left-split > .workspace-sidedock-empty-state + .workspace-tabs .workspace-leaf {
+.mod-left-split > :nth-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-left-split > :nth-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-top-right-radius: var(--radius-l);
 }
-.workspace-split.mod-horizontal.mod-left-split > .workspace-tabs:not(:has(+ .workspace-tabs)) .workspace-leaf {
+.mod-left-split > :nth-last-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-left-split > :nth-last-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-bottom-right-radius: var(--radius-l);
 }
-.workspace-split.mod-horizontal.mod-right-split > .workspace-sidedock-empty-state + .workspace-tabs .workspace-leaf {
+.mod-right-split > :nth-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-right-split > :nth-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-top-left-radius: var(--radius-l);
 }
-.workspace-split.mod-horizontal.mod-right-split > .workspace-tabs:not(:has(+ .workspace-tabs)) .workspace-leaf {
+.mod-right-split > :nth-last-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-right-split > :nth-last-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-bottom-left-radius: var(--radius-l);
 }
 .workspace-tab-header:hover {

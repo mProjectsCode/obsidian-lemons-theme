@@ -1,7 +1,6 @@
 .markdown-rendered {
 	table {
 		border-radius: var(--radius-m);
-		overflow: hidden;
 
 		& > thead {
 			& > tr {
@@ -13,6 +12,14 @@
 
 				& > th {
 					border: none;
+
+					&:first-child {
+						border-radius: var(--radius-m) 0 0 0;
+					}
+
+					&:last-child {
+						border-radius: 0 var(--radius-m) 0 0;
+					}
 				}
 			}
 		}
@@ -37,6 +44,16 @@
 
 			& > tr:last-child {
 				border-bottom: none;
+
+				& > td {
+					&:first-child {
+						border-radius: 0 0 0 var(--radius-m);
+					}
+
+					&:last-child {
+						border-radius: 0 0 var(--radius-m) 0;
+					}
+				}
 			}
 		}
 

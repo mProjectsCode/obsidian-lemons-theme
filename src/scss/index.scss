@@ -106,6 +106,9 @@ body {
 	--lt-gradient-gay: #{$gradient-gay};
 	--lt-gradient-non-bin: #{$gradient-non-bin};
 
+	--table-selection-border-radius: var(--radius-m);
+	--table-border-width: 1px;
+
 
 	/* Color mappings ------------------------ */
 	/* Accent HSL values */
@@ -233,34 +236,63 @@ body.theme-dark {
 	--lt-canvas-hover-color: #{to_RGB_arguments($dark-color-base-50)};
 }
 
-.workspace-split.mod-horizontal.mod-left-split {
+.mod-left-split > :nth-child(1 of .workspace-tabs) {
+	background-color: var(--background-primary);
 
-	> .workspace-sidedock-empty-state + .workspace-tabs {
-		.workspace-leaf {
-			border-top-right-radius: var(--radius-l);
-		}
+	& > .workspace-tab-container {
+		border-top-right-radius: var(--radius-l);
 	}
+}
+.mod-left-split > :nth-last-child(1 of .workspace-tabs) {
+	background-color: var(--background-primary);
 
-	> .workspace-tabs:not(:has(+ .workspace-tabs)) {
-		.workspace-leaf {
-			border-bottom-right-radius: var(--radius-l);
-		}
+	& > .workspace-tab-container {
+		border-bottom-right-radius: var(--radius-l);
+	}
+}
+.mod-right-split > :nth-child(1 of .workspace-tabs) {
+	background-color: var(--background-primary);
+
+	& > .workspace-tab-container {
+		border-top-left-radius: var(--radius-l);
+	}
+}
+.mod-right-split > :nth-last-child(1 of .workspace-tabs) {
+	background-color: var(--background-primary);
+
+	& > .workspace-tab-container {
+		border-bottom-left-radius: var(--radius-l);
 	}
 }
 
-.workspace-split.mod-horizontal.mod-right-split {
-	> .workspace-sidedock-empty-state + .workspace-tabs {
-		.workspace-leaf {
-			border-top-left-radius: var(--radius-l);
-		}
-	}
-
-	> .workspace-tabs:not(:has(+ .workspace-tabs)) {
-		.workspace-leaf {
-			border-bottom-left-radius: var(--radius-l);
-		}
-	}
-}
+//.workspace-split.mod-horizontal.mod-left-split {
+//
+//	> .workspace-sidedock-empty-state + .workspace-tabs {
+//		.workspace-leaf {
+//			border-top-right-radius: var(--radius-l);
+//		}
+//	}
+//
+//	> .workspace-tabs:not(:has(+ .workspace-tabs)) {
+//		.workspace-leaf {
+//			border-bottom-right-radius: var(--radius-l);
+//		}
+//	}
+//}
+//
+//.workspace-split.mod-horizontal.mod-right-split {
+//	> .workspace-sidedock-empty-state + .workspace-tabs {
+//		.workspace-leaf {
+//			border-top-left-radius: var(--radius-l);
+//		}
+//	}
+//
+//	> .workspace-tabs:not(:has(+ .workspace-tabs)) {
+//		.workspace-leaf {
+//			border-bottom-left-radius: var(--radius-l);
+//		}
+//	}
+//}
 
 .workspace-tab-header {
 	&:hover {
@@ -269,7 +301,6 @@ body.theme-dark {
 		.workspace-tab-header-inner-icon > svg {
 			color: var(--text-accent);
 		}
-
 	}
 }
 
