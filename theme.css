@@ -18,8 +18,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/*!
-/* @settings
+/*! @settings
 name: Lemons Theme
 id: lemons-theme-settings
 collapsed: false
@@ -44,6 +43,17 @@ settings:
 	title: Hide Tab Title Bar File Name
 	description: Hide the file name in the tab title bar. Who needs to see the tab title three times anyways.
 	type: class-toggle
+  -
+	id: lt-accent-headings
+	title: More Visible Headings
+	description: Colors the heading in the accent color to make them more visible.
+	type: class-toggle
+  -
+	id: lt-hashtag-headings
+	title: Hashtag Headings
+	description: Prefix headings with a hashtag even in reading mode.
+	type: class-toggle
+	default: true
   - 
 	id: lt-set-mode-toggles
 	title: Mode Toggles
@@ -163,6 +173,89 @@ body.lt-pride-month-colors .tree-item:nth-child(5n+5) > .tree-item-self.is-activ
 body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-title {
   display: none;
 }
+body.lt-accent-headings .markdown-reading-view h1,
+body.lt-accent-headings .markdown-reading-view h2,
+body.lt-accent-headings .markdown-reading-view h3,
+body.lt-accent-headings .markdown-reading-view h4,
+body.lt-accent-headings .markdown-reading-view h5,
+body.lt-accent-headings .markdown-reading-view h6 {
+  color: var(--text-accent);
+}
+body.lt-accent-headings .markdown-rendered h1,
+body.lt-accent-headings .markdown-rendered h2,
+body.lt-accent-headings .markdown-rendered h3,
+body.lt-accent-headings .markdown-rendered h4,
+body.lt-accent-headings .markdown-rendered h5,
+body.lt-accent-headings .markdown-rendered h6 {
+  color: var(--text-accent);
+}
+body.lt-accent-headings .markdown-source-view .HyperMD-header .cm-header:not(.cm-formatting-header) {
+  color: var(--text-accent);
+}
+body.lt-hashtag-headings .markdown-source-view.is-live-preview .HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .HyperMD-header.cm-active .cm-formatting-header {
+  color: var(--text-accent);
+}
+body.lt-hashtag-headings .markdown-reading-view h1:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h1:hover:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h2:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h2:hover:before {
+  content: "## ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h3:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h3:hover:before {
+  content: "### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h4:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h4:hover:before {
+  content: "#### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h5:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h5:hover:before {
+  content: "##### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h6:before {
+  content: "# ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h6:hover:before {
+  content: "###### ";
+  color: var(--text-faint);
+}
+body.lt-hashtag-headings .markdown-reading-view h1:before,
+body.lt-hashtag-headings .markdown-reading-view h2:before,
+body.lt-hashtag-headings .markdown-reading-view h3:before,
+body.lt-hashtag-headings .markdown-reading-view h4:before,
+body.lt-hashtag-headings .markdown-reading-view h5:before,
+body.lt-hashtag-headings .markdown-reading-view h6:before {
+  content: "# ";
+  color: var(--text-faint);
+}
 .callout {
   padding: 0;
   background: rgb(var(--callout-color), 0.1);
@@ -181,13 +274,13 @@ body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-t
 .callout .callout-content > :last-child {
   margin-bottom: 0;
 }
-.callout[data-callout=row] {
+.callout[data-callout-metadata=row] {
   background: transparent;
 }
-.callout[data-callout=row] > .callout-title {
+.callout[data-callout-metadata=row] > .callout-title {
   display: none;
 }
-.callout[data-callout=row] > .callout-content {
+.callout[data-callout-metadata=row] > .callout-content {
   padding: 0;
   background: transparent;
   display: flex;
@@ -195,77 +288,78 @@ body.lt-hide-tab-title-bar-file-name .view-header-title-container .view-header-t
   flex-wrap: nowrap;
   gap: var(--size-4-4);
 }
-.callout[data-callout=row] > .callout-content > * {
+.callout[data-callout-metadata=row] > .callout-content > * {
   flex: 1;
   margin: 0;
+  height: min-content;
 }
-.callout[data-callout=grid] {
+.callout[data-callout-metadata=grid] {
   --lt-callout-grid-columns: 2;
   background: transparent;
 }
-.callout[data-callout=grid][data-callout-metadata="1"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="1"] {
   --lt-callout-grid-columns: 1;
 }
-.callout[data-callout=grid][data-callout-metadata="2"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="2"] {
   --lt-callout-grid-columns: 2;
 }
-.callout[data-callout=grid][data-callout-metadata="3"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="3"] {
   --lt-callout-grid-columns: 3;
 }
-.callout[data-callout=grid][data-callout-metadata="4"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="4"] {
   --lt-callout-grid-columns: 4;
 }
-.callout[data-callout=grid][data-callout-metadata="5"] {
+.callout[data-callout-metadata=grid][data-callout-metadata="5"] {
   --lt-callout-grid-columns: 5;
 }
-.callout[data-callout=grid] > .callout-title {
+.callout[data-callout-metadata=grid] > .callout-title {
   display: none;
 }
-.callout[data-callout=grid] > .callout-content {
+.callout[data-callout-metadata=grid] > .callout-content {
   padding: 0;
   background: transparent;
   display: grid;
   grid-template-columns: repeat(var(--lt-callout-grid-columns), 1fr);
   gap: var(--size-4-4);
 }
-.callout[data-callout=grid] > .callout-content > * {
+.callout[data-callout-metadata=grid] > .callout-content > * {
   margin: 0;
 }
-.callout[data-callout=float] {
+.callout[data-callout-metadata=float] {
   float: right;
   max-width: 50%;
   margin-left: 1em;
   margin-top: 0;
   background: transparent;
 }
-.callout[data-callout=float][data-callout-metadata=left] {
+.callout[data-callout-metadata=float][data-callout-metadata=left] {
   float: left;
   margin-left: 0;
   margin-right: 1em;
 }
-.callout[data-callout=float] > .callout-title {
+.callout[data-callout-metadata=float] > .callout-title {
   display: none;
 }
-.callout[data-callout=float] > .callout-content {
+.callout[data-callout-metadata=float] > .callout-content {
   padding: 0;
   background: transparent;
 }
-.callout[data-callout=float] > .callout-content > * {
+.callout[data-callout-metadata=float] > .callout-content > * {
   margin: 0;
 }
-.callout[data-callout=invisible] {
+.callout[data-callout-metadata=invisible] {
   margin: 0;
   padding: 0;
   background: transparent;
 }
-.callout[data-callout=invisible] > .callout-title {
+.callout[data-callout-metadata=invisible] > .callout-title {
   display: none;
 }
-.callout[data-callout=invisible] > .callout-content {
+.callout[data-callout-metadata=invisible] > .callout-content {
   padding: 0;
   background: transparent;
 }
-.callout[data-callout=invisible] > .callout-content > * {
+.callout[data-callout-metadata=invisible] > .callout-content > * {
   margin: 0;
 }
 .markdown-rendered blockquote {
@@ -1117,7 +1211,6 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table {
   border-radius: var(--radius-m);
-  overflow: hidden;
 }
 .markdown-rendered table > thead > tr {
   border-bottom: 1px solid var(--background-modifier-border-hover);
@@ -1127,6 +1220,12 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table > thead > tr > th {
   border: none;
+}
+.markdown-rendered table > thead > tr > th:first-child {
+  border-radius: var(--radius-m) 0 0 0;
+}
+.markdown-rendered table > thead > tr > th:last-child {
+  border-radius: 0 var(--radius-m) 0 0;
 }
 .markdown-rendered table > tbody > tr {
   border-bottom: 1px solid var(--background-modifier-border);
@@ -1143,6 +1242,12 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 }
 .markdown-rendered table > tbody > tr:last-child {
   border-bottom: none;
+}
+.markdown-rendered table > tbody > tr:last-child > td:first-child {
+  border-radius: 0 0 0 var(--radius-m);
+}
+.markdown-rendered table > tbody > tr:last-child > td:last-child {
+  border-radius: 0 0 var(--radius-m) 0;
 }
 .markdown-rendered table :is(td, th) {
   padding: var(--size-4-2) var(--size-4-4);
@@ -1162,6 +1267,9 @@ body.lt-set-file-icons .nav-files-container .nav-file .nav-file-title[data-path$
 .tree-item .tree-item-self {
   padding-left: var(--size-4-2) !important;
   margin-left: 0 !important;
+}
+.tree-item .tree-item-self:has(> .tree-item-icon) {
+  padding-left: var(--size-4-6) !important;
 }
 .tree-item .tree-item-self.mod-collapsible {
   padding-left: var(--size-4-6) !important;
@@ -1244,7 +1352,7 @@ body {
   --nav-item-color-active: var(--text-on-accent);
   --nav-item-color-hover: var(--text-accent);
   --nav-item-children-padding-left: var(--size-4-2);
-  --nav-item-padding: var(--size-4-1) var(--size-4-2) var(--size-4-1) var(--size-4-2);
+  --nav-item-padding: var(--size-4-1) var(--size-4-2) var(--size-4-1) var(--size-4-6);
   --icon-color-focused: var(--text-accent);
   --icon-color-active: var(--text-accent);
   --icon-color-hover: var(--text-accent);
@@ -1262,6 +1370,8 @@ body {
   --lt-gradient-lesbian: linear-gradient(to right, rgb(213, 44, 0), rgb(226, 150, 136), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(210, 127, 164), rgb(162, 2, 98));
   --lt-gradient-gay: linear-gradient(to right, rgb(7, 141, 111), rgb(152, 202, 153), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(205, 208, 234), rgb(123, 173, 226) 70%, rgb(69, 76, 189), rgb(63, 26, 121));
   --lt-gradient-non-bin: linear-gradient(to right, rgb(253, 219, 0), rgb(238, 212, 143), rgb(255, 255, 255) 30%, rgb(255, 255, 255), rgb(255, 255, 255) 36%, rgb(212, 181, 222), rgb(156, 92, 212), rgb(88, 50, 96), rgb(0, 0, 0));
+  --table-selection-border-radius: var(--radius-m);
+  --table-border-width: 1px;
   --accent-h: 46deg;
   --accent-s: 95%;
   --accent-l: 65%;
@@ -1429,12 +1539,28 @@ body.theme-dark {
     112,
     112;
 }
-.workspace-split.mod-horizontal.mod-left-split .workspace-leaf {
+.mod-left-split > :nth-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-left-split > :nth-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-top-right-radius: var(--radius-l);
+}
+.mod-left-split > :nth-last-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-left-split > :nth-last-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-bottom-right-radius: var(--radius-l);
 }
-.workspace-split.mod-horizontal.mod-right-split .workspace-leaf {
+.mod-right-split > :nth-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-right-split > :nth-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-top-left-radius: var(--radius-l);
+}
+.mod-right-split > :nth-last-child(1 of .workspace-tabs) {
+  background-color: var(--background-primary);
+}
+.mod-right-split > :nth-last-child(1 of .workspace-tabs) > .workspace-tab-container {
   border-bottom-left-radius: var(--radius-l);
 }
 .workspace-tab-header:hover {
@@ -1475,70 +1601,6 @@ body.theme-dark {
 .cm-active .list-bullet:after {
   background-color: var(--text-accent);
 }
-.markdown-source-view.is-live-preview .HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.HyperMD-header.cm-active .cm-formatting-header {
-  color: var(--text-accent);
-}
-.markdown-reading-view h1:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h1:hover:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h2:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h2:hover:before {
-  content: "## ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h3:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h3:hover:before {
-  content: "### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h4:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h4:hover:before {
-  content: "#### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h5:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h5:hover:before {
-  content: "##### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h6:before {
-  content: "# ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h6:hover:before {
-  content: "###### ";
-  color: var(--text-faint);
-}
-.markdown-reading-view h1:before,
-.markdown-reading-view h2:before,
-.markdown-reading-view h3:before,
-.markdown-reading-view h4:before,
-.markdown-reading-view h5:before,
-.markdown-reading-view h6:before {
-  content: "# ";
-  color: var(--text-faint);
-}
 .markdown-rendered h1,
 .markdown-rendered h2,
 .markdown-rendered h3,
@@ -1565,10 +1627,6 @@ body.theme-dark {
 }
 pre code[class*=language-] {
   white-space: pre;
-}
-.view-content img:not(.emoji) {
-  display: block;
-  width: 100%;
 }
 .image-embed[alt]:not([alt$=".png"], [alt$=".jpg"], [alt$=".jpeg"], [alt$=".tiff"])::after {
   content: attr(alt);

@@ -1,5 +1,4 @@
-/*!
-/* @settings
+/*! @settings
 name: Lemons Theme
 id: lemons-theme-settings
 collapsed: false
@@ -202,8 +201,8 @@ body.lt-accent-headings {
 		}
 	}
 
-	.markdown-source-view.is-live-preview {
-		.HyperMD-header .cm-header {
+	.markdown-source-view {
+		.HyperMD-header .cm-header:not(.cm-formatting-header) {
 			color: var(--text-accent);
 		}
 	}

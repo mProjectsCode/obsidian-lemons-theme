@@ -18,8 +18,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-/*!
-/* @settings
+/*! @settings
 name: Lemons Theme
 id: lemons-theme-settings
 collapsed: false
@@ -190,7 +189,7 @@ body.lt-accent-headings .markdown-rendered h5,
 body.lt-accent-headings .markdown-rendered h6 {
   color: var(--text-accent);
 }
-body.lt-accent-headings .markdown-source-view.is-live-preview .HyperMD-header .cm-header {
+body.lt-accent-headings .markdown-source-view .HyperMD-header .cm-header:not(.cm-formatting-header) {
   color: var(--text-accent);
 }
 body.lt-hashtag-headings .markdown-source-view.is-live-preview .HyperMD-header:not(:has(> .cm-formatting-header)) .cm-header:before {
